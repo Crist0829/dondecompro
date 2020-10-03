@@ -1,0 +1,121 @@
+
+<script src="view/assets/js/productos.js"></script>
+<!-- Content body -->
+<div class="content-body">
+    <!-- Content -->
+    <div class="content ">
+        
+<div class="page-header">
+<div>
+    <h3 class="titulos text-center">ADMINISTRAR PRODUCTOS</h3>
+    <figure class="text-center"> <img src="view/assets/media/image/ositos/administracion.png"></figure>
+</div>
+</div>
+
+<!--Tabla de negocios-->
+<div class="card">
+    <div class="card-body">
+    
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+
+                    <label>BUSCAR:</label>
+
+                    <input type="text" class="form-control" id="buscar" onkeyup="filtrar()" placeholder="BUSCAR PRODUCTOS...">
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+
+                    <label>FILTAR POR RUBRO:</label>
+                    <select class="form-control" id="rubro" onchange="filtrar()">
+                        <option value="TODOS" selected>TODOS</option>
+                        <option value="SIN CLASIFICAR">SIN CLASIFICAR</option>
+                        <option value="ALIMENTOS CONGELADOS">ALIMENTOS CONGELADOS</option>
+                        <option value="ALMACEN">ALMACEN</option>
+                        <option value="AUTOMOTOR">AUTOMOTOR</option>
+                        <option value="BALANCEADOS">BALANCEADOS</option>
+                        <option value="BAZAR">BAZAR</option>
+                        <option value="BEBIDAS">BEBIDAS</option>
+                        <option value="BEBIDAS CON ALCOHOL">BEBIDAS CON ALCOHOL</option>
+                        <option value="BEBIDAS SIN ALCOHOL">BEBIDAS SIN ALCOHOL</option>
+                        <option value="BLANCO Y MANTELERÍA">BLANCO Y MANTELERÍA</option>
+                        <option value="CAMPING">CAMPING</option>
+                        <option value="CARNICERÍA">CARNICERÍA</option>
+                        <option value="ELECTRODOMÉTICOS">ELECTRODOMÉTICOS</option>
+                        <option value="FARMACIA">FARMACIA</option>
+                        <option value="FERRETERÍA">FERRETERÍA</option>
+                        <option value="FIAMBRERÍA">FIAMBRERÍA</option>
+                        <option value="GALLETITAS Y GOLOSINAS">GALLETITAS Y GOLOSINAS</option>
+                        <option value="HELADOS">HELADOS</option>
+                        <option value="JARDINERÍA">JARDINERÍA</option>
+                        <option value="JUGUETERÍA">JUGUETERÍA</option>
+                        <option value="KIOSCO">KIOSCO</option>
+                        <option value="LÁCTEOS">LÁCTEOS</option>
+                        <option value="LIBRERÍA">LIBRERÍA</option>
+                        <option value="LIMPIEZA">LIMPIEZA</option>
+                        <option value="MAMÁS Y BEBÉS">MAMÁS Y BEBÉS</option>
+                        
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>MOSTRAR ENTRADAS:</label>
+                    <select class="form-control" id="entradas" onchange="filtrar()">
+                        <option value="5"> 5 </option>
+                        <option value="10"> 10 </option>
+                        <option value="25" selected> 25 </option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class='card-per'>
+            <div class='table-responsive'>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>CÓDIGO</th>
+                    <th>DESCRIPCION</th>
+                    <th>RUBRO</th>
+                    <th>PRECIO</th>
+
+                </tr>
+                </thead>
+
+                <tbody id='productos'>
+
+                </tbody>
+                
+            </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--Termina la Tabla de negocios-->
+
+    </div>
+    <!-- ./ Content -->
+
+    <!-- Footer -->
+    <footer class="content-footer">
+        <div>© 2020 DondeCompro - <a href="http://laborasyon.com" target="_blank">DondeCompro Landing Page</a></div>
+        <div>
+            <nav class="nav">
+                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licencia</a>
+                <a href="#" class="nav-link">Politica de privacidad</a>
+                <a href="#" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- ./ Footer -->
+</div>
+<!-- ./ Content body -->

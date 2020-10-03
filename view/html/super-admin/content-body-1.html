@@ -1,0 +1,94 @@
+
+<script src="view/assets/js/negocios.js"></script>
+<!-- Content body -->
+<div class="content-body">
+    <!-- Content -->
+    <div class="content ">
+        
+<div class="page-header">
+<div>
+    <h3 class="titulos text-center">ADMINISTRAR NEGOCIOS</h3>
+    <figure class="text-center"> <img src="view/assets/media/image/ositos/super-admin.png"></figure>
+</div>
+</div>
+
+<!--Tabla de negocios-->
+<div class="card">
+    <div class="card-body">
+    
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Buscar:</label>
+                    <input type="text" class="form-control" id="buscar" onkeyup="filtrar()" placeholder="Buscar Negocios...">
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>ORDENAR DE MANERA:</label>
+                    <select class="form-control" id="ordenar" onchange="filtrar()">
+                        
+                        <option value="asc">Ascendiente</option>
+                        <option value="desc">Descendiente</option>
+            
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>MOSTRAR ENTRADAS:</label>
+                    <select class="form-control" id="entradas" onchange="filtrar()">
+                        <option value="1"> 1 </option>
+                        <option value="3"> 3</option>
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                        <option value="25">20</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-per">
+            <h6 class="card-title">NEGOCIOS</h6>
+            <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>IMAGEN & ID</th>
+                    <th>NOMBRE</th>
+                    <th>CORREO</th>
+                    <th>ESTADO</th>
+                    <th class="text-right">acción</th>
+                </tr>
+                </thead>
+
+                <tbody id="negocios">
+
+                </tbody>
+            </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--Termina la Tabla de negocios-->
+
+    </div>
+<!-- ./ Content -->
+
+    <!-- Footer -->
+    <footer class="content-footer">
+        <div>© 2020 DondeCompro - <a href="http://laborasyon.com" target="_blank">DondeCompro Landing Page</a></div>
+        <div>
+            <nav class="nav">
+                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licencia</a>
+                <a href="#" class="nav-link">Politica de privacidad</a>
+                <a href="#" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- ./ Footer -->
+</div>
+<!-- ./ Content body -->

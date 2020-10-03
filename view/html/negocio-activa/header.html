@@ -1,0 +1,95 @@
+<div class="header d-print-none">
+    <div class="header-container">
+        <div class="header-left">
+            <div class="navigation-toggler">
+                <a href="#" data-action="navigation-toggler">
+                    <i data-feather="menu"></i>
+                </a>
+            </div>
+
+            <div class="header-logo">
+                <a href=index.html>
+                    <img class="logo" src="view/assets/media/image/logo.png" alt="logo">
+                </a>
+            </div>
+        </div>
+
+        <!--Cuerpo del header-->
+        <div class="header-body">
+
+            <!--Barra de navegación izquierda-->
+            <div class="header-body-left">
+
+                <ul class="navbar-nav">
+                </ul>
+            
+            </div>
+            <!--Fin de la barra de navegación izquierda-->
+
+            <!--Barra de navegación derecha-->
+            <div class="header-body-right">
+                <ul class="navbar-nav">
+
+
+                    <!--Item  Pantalla completa -->
+                    <li class="nav-item dropdown d-none d-md-block">
+                        <a href="#" class="nav-link" title="Fullscreen" data-toggle="fullscreen">
+                            <i class="maximize" data-feather="maximize"></i>
+                            <i class="minimize" data-feather="minimize"></i>
+                        </a>
+                    </li>
+                    <!--Fin del item de pantalla completa-->
+
+
+
+                    <!-- Menu de usuario-->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" title="Menú de usuario" data-toggle="dropdown">
+                            <figure class="avatar avatar-sm">
+                                <img src=<?php cargarImagen() ?>
+                                     class="rounded-circle"
+                                     alt="imagen">
+                            </figure>
+                            <span class="ml-2 d-sm-inline d-none"><?php echo $_SESSION["nombre"] ?></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                            <div class="text-center py-4">
+                                <figure class="avatar avatar-lg mb-3 border-0">
+                                    <img src=<?php cargarImagen() ?>
+                                         class="rounded-circle" alt="imagen">
+                                </figure>
+                            
+                                <h1 class="titulos"><?php echo $_SESSION["nombre"] ?></h4>
+                                    <hr class="hr-per">
+                                <h4 class="text-muted">CUENTA DE NEGOCIO</h6>
+                                <h6 class="texto-verde-peque">ACTIVA</h6>
+                                    <hr class="hr-per">
+                            </div>
+                                
+                                <div class ="form-group">
+    
+                                    <div class="form-group d-flex justify-content-around">
+                                        <a href="controller/destruye_sesion_cookies.php" class="btn btn-success btn-block">CERRAR SESIÓN</a>
+                                    </div>
+
+                                </div>
+                                
+                        </div>
+                    </li>
+                    <!--Fin del menú de usuario-->
+                </ul>
+            </div>
+            <!--Fin de la barra de navegación derecha-->
+
+        </div>
+        <!--Fin del cuerpo del header-->
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item header-toggler">
+                <a href="#" class="nav-link">
+                    <i data-feather="arrow-down"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

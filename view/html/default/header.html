@@ -1,0 +1,108 @@
+
+<script src="view/assets/js/validar.js"> </script>
+
+<div class="header d-print-none">
+    <div class="header-container">
+        <div class="header-left">
+            <div class="navigation-toggler">
+                <a href="#" data-action="navigation-toggler">
+                    <i data-feather="menu"></i>
+                </a>
+            </div>
+
+            <div class="header-logo">
+                <a href=index.php>
+                    <img class="logo" src="view/assets/media/image/logo.png" alt="logo">
+                </a>
+            </div>
+        </div>
+
+        <!--Cuerpo del header-->
+        <div class="header-body">
+
+            <!--Barra de navegación izquierda-->
+            <div class="header-body-left">
+
+                <ul class="navbar-nav">
+                </ul>
+            
+            </div>
+            <!--Fin de la barra de navegación izquierda-->
+
+            <!--Barra de navegación derecha-->
+            <div class="header-body-right">
+                <ul class="navbar-nav">
+
+
+                    <!--Item  Pantalla completa -->
+                    <li class="nav-item dropdown d-none d-md-block">
+                        <a href="#" class="nav-link" title="Fullscreen" data-toggle="fullscreen">
+                            <i class="maximize" data-feather="maximize"></i>
+                            <i class="minimize" data-feather="minimize"></i>
+                        </a>
+                    </li>
+                    <!--Fin del item de pantalla completa-->
+
+
+
+                    <!-- Menu de usuario-->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" title="Menú de usuario" data-toggle="dropdown">
+                            <figure class="avatar avatar-sm">
+                                <img src="view/assets/media/image/user/default.png"
+                                     class="rounded-circle"
+                                     alt="avatar">
+                            </figure>
+                            <span class="ml-2 d-sm-inline d-none">Iniciar Sesión</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
+                            <div class="text-center py-4">
+                                <figure class="avatar avatar-lg mb-3 border-0">
+                                    <img src="view/assets/media/image/user/default.png"alt="image">
+                                </figure>
+                                <h5 class="text-center">Iniciar Sesión</h5>
+                                    <form action="controller/process_login.php" onsubmit="return validarLogin();" method="POST">
+                                        <div class="form-group"></div>
+                                        <div class="form-group">
+                                            <input type="text" name="nombre_u" onchange = "validarNombre()" class="form-control" id="nomail" placeholder="Nombre de usuario o email" required autofocus>
+                                        </div>
+                                        <div class="form-group d-block justify-content-around">
+                                            <input type="password" name = "clave_u" class="form-control"  placeholder="Contraseña" required>
+                                        </div>
+                                        <div class="form-group d-flex justify-content-around">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" name ="recordar" class="custom-control-input" checked="" id="customCheck1">
+                                                <label class="custom-control-label text-muted" for="customCheck1">Recordarme</label>
+                                            </div>
+                                            <a class ="text-muted" href="view/recuperar-clave.php"><small>¿Olvidaste la contraseña?</small></a>
+                                        </div>
+                                            <p id="texlogin" class="texto-verde-peque"></p>
+                                            <button class="btn btn-success btn-block">INGRESAR</button>
+                                        <div class="form-group d-flex justify-content-between"></div>
+                                        <div class="form-grou d-flex justify-content-around">
+                                            <p class="text-muted">¿No tienes una cuenta?</p>
+                                        </div>
+                                        <div class="form-grou d-flex justify-content-lg-around">
+                                            <a href="view/registrar-usuario.php" class="btn btn-success btn-block">¡REGÍSTRATE!</a>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+                    </li>
+                    <!--Fin del menú de usuario-->
+                </ul>
+            </div>
+            <!--Fin de la barra de navegación derecha-->
+
+        </div>
+        <!--Fin del cuerpo del header-->
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item header-toggler">
+                <a href="#" class="nav-link">
+                    <i data-feather="arrow-down"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

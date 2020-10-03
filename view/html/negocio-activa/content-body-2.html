@@ -1,0 +1,250 @@
+<script src="view/assets/js/cuenta.js"></script>
+<div class="content-body">
+    <!-- Content -->
+    <div class="content ">
+        
+<div class="page-header">
+<div>
+    <h3 class="titulos">ADMINISTRAR CUENTA</h3>
+    
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-3">
+            <figure class="text-center"> <img src="view/assets/media/image/ositos/ajustes.png"></figure>
+            <div class="nav nav-pills flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+                <a class="nav-item nav-link active" id="v-pills-home-tab" data-toggle="pill"
+                   href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">INFORMACIÓN</a>
+
+                 <a class="nav-item nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-foto"
+                   role="tab" aria-controls="v-pills-foto" aria-selected="false">IMAGEN</a>
+
+                <a class="nav-item nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                   role="tab" aria-controls="v-pills-profile" aria-selected="false">CONTRASEÑA</a>
+                
+            </div>
+        </div>
+        <div class="col-md-9 align-content-center">
+            <div class="tab-content" id="v-pills-tabContent">
+
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                     aria-labelledby="v-pills-home-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+        
+                                <div class="card align-items-center">
+
+                                    <div class="card card-per align-items-center">
+                                    <h6 class="card-title texto-verde text-left">INFORMACIÓN DE LA CUENTA</h6>
+                                    <div class="d-flex mb-3">
+                                        <div class="card-per">
+                                            <h6 class="text-center">IMAGEN</h6>
+                                            <img width="200" src=<?php cargarImagen() ?> alt="...">
+                                        </div>
+                                    </div>
+        
+                                    <div class="d-flex mb-3">
+                                    
+                                        <table class="table">
+                                            <thead>
+
+                                                <th></th>
+                                                <th></th>
+
+                                            </thead>
+
+                                            <tbody>
+                                            <tr>
+                                                <td>NOMBRE:</td>
+                                                <td><small><?php echo $_SESSION["nombre"]; ?></small> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>CORREO:</td>
+                                                <td><small><?php echo $_SESSION["correo"]; ?></small> </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>CUENTA:</td>
+                                                <td ><small>NEGOCIO</small> </td>
+                                            </tr>
+                                            <tr>
+                                                <td>ESTADO:</td>
+                                                <td><small class="text-center">ACTIVA</small></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>FECHA DE REGISTRO:</td>
+                                                <td> <?php echo $_SESSION["fecha"]; ?></td>
+                                                
+                                            </tr>
+
+                                        </tbody>
+
+                                        </table>
+        
+                                    </div>
+                                    </div>
+                                    
+
+                                </div>
+
+                                <div class="card align-self-center">
+                                    <div class="card-per">
+                                        <h6 class="card-title texto-verde">ACTUALIZAR INFORMACIÓN</h6>
+                                    <form onsubmit="return cambiarDatos()" method="POST" action="controller/actualizarinfo.php">
+                                    
+                                        
+                                        <div class="form-group">
+    
+                                            <label>Nombre</label>
+                                            <input type="text" class="form-control" name="nombre" onchange = "fNombre()" id="nombre" value=<?php echo $_SESSION["nombre"]; ?> placeholder=<?php echo $_SESSION["nombre"]; ?> required>
+                                            <p class="form-text text-center" id="enombre"></p>
+    
+                                        </div>
+                                        
+    
+                                        <div class="form-group">
+    
+                                            <label>Correo</label>
+                                            <input type="email" onchange="fCorreo()" name="correo" id="correo" class="form-control" value=<?php echo $_SESSION["correo"]; ?> placeholder=<?php echo $_SESSION["correo"]; ?> required>
+                                            <p class="form-text text-center" id="ecorreo"></p>
+    
+                                        </div>
+
+                                        <div class="form-group">
+    
+                                            <label><small>Escribe tu contraseña para confirmar los cambios </small> </label>
+                                            <input type="password" name="clave" id="clave" class="form-control" required>
+                                            <p class="form-text text-center" id="ecorreo"></p>
+     
+                                        </div>
+
+                
+                                            <input type="submit" class="btn btn-success btn-sm" value="GUARDAR CAMBIOS">
+    
+                                    </form>
+                                </div>
+                                </div>
+                            
+                            </div>
+                            
+
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
+                     aria-labelledby="v-pills-profile-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title texto-verde">CAMBIAR CONTRASEÑA</h6>
+                            <form action="controller/cambiarclave.php" method="POST" onsubmit="return cambiarClave()">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Tu contraseña actual</label>
+                                            <input type="password" name="clave" id="claveold" class="form-control" required>
+                                            <p id="eclave" class="text-muted"><small></small></p>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Nueva contraseña</label>
+                                            <input type="password" name="nueva" id="newclave" class="form-control" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Repite tu nueva contraseña</label>
+                                            <input type="password" name="repite" id="rclave" onchange="frClave()" class="form-control" required>
+                                            <p id="erclave" class="text-muted"><small></small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="submit" class="btn btn-success btn-sm" value="CAMBIAR">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="v-pills-foto" role="tabpanel"
+                     aria-labelledby="v-pills-foto-tab">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card align-items-center">
+                                    <div class="card card-per align-items-center">
+                                    <h6 class="card-title texto-verde text-left"><?php echo $_SESSION["nombre"]; ?></h6>
+
+                                    <div class="d-flex mb-3">
+
+                                        <div class="card-per">
+                                            <h6 class="text-center">IMAGEN</h6>
+                                            <img width="200" src=<?php cargarImagen() ?> alt="...">
+                                        </div>
+                                    
+
+                                        </div>
+                                        <div>
+
+                                            
+                                            <form action="controller/cambiarimagen.php" method="POST" enctype="multipart/form-data">
+
+                                                <div class="form-group align-self-center">
+
+                                                    <label for="mimagen"></label>
+                                                    <input type="file" name="imagen" class="imagen-per">
+
+                                                </div>
+
+                                                <div class="form-group d-flex align-content-around"> 
+
+                                                    <input type="submit" class="btn btn-success btn-sm" value="GUARDAR">
+
+                                                </div>
+                                                
+     
+                                            </form>
+
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                
+    
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+    </div>
+    <!-- ./ Content -->
+
+    <!-- Footer -->
+    <footer class="content-footer">
+        <div>© 2020 DondeCompro - <a href="http://laborasyon.com" target="_blank">DondeCompro Landing Page</a></div>
+        <div>
+            <nav class="nav">
+                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licencia</a>
+                <a href="#" class="nav-link">Politica de privacidad</a>
+                <a href="#" class="nav-link">Contacto</a>
+            </nav>
+        </div>
+    </footer>
+    <!-- ./ Footer -->
+</div>
