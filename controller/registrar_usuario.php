@@ -1,10 +1,6 @@
 <?php
 
 require_once("../model/conect_db.php");
-use PHPMailer\PHPMailer\PHPMailer;
-require_once("PHPMailer-master/src/PHPMailer.php");
-require_once("PHPMailer-master/src/SMTP.php");
-
 
 
 $nombre = htmlentities(addslashes($_POST["nombre"])); 
@@ -24,33 +20,20 @@ $conexion = new insertarUsuario();
 
 if($conexion->insertar_temp($nombre, $correo, $clave_cifrada, $perfil, $estado, $fecha, $activacion_con)){
 
-    $mail = new PHPMailer;
-    $mail->isSMTP();
-    $mail->SMTPDebug = 2;
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = 587;
-    $mail->SMTPAuth = true;
-    $mail->Username = 'ccjd.0796@gmail.com';
-    $mail->Password = 'Nathaly0829.';
-    $mail->setFrom('Dondecomo@gmail.com', 'Donde compro');
-    //$mail->addReplyTo('Dondecomo@gmail.com', 'DondeCaaaOmpro');
-    $mail->addAddress($correo, $name);
-    $mail->Subject = 'Activacion de la cuenta';
-    //$mail->msgHTML(file_get_contents('message.html'), __DIR__);
-    $mail->Body = "Ingrea a este link para activar la cuenta: http://".$_SERVER["SERVER_NAME"]."/Php/dondecompro/view/activacion.php?correo=$correo&activacion=$activacion_con";
+    $para = $correo;
+    $titulo = 'Verificación de la cuenta';
+    $mensaje = "Ingresa a este link para verificar tu cuenta: ".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con.";
 
-if (!$mail->send()) {
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
+    mail($para, $titulo, $mensaje);
+
+    header("location: ../view/verificacion.php");
 
 } else {
 
     echo 'The email message was sent.';
-    header("location:../view/verificacion.php");
     
-
-
 }
-}
+
 
 
 ?>

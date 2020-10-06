@@ -20,14 +20,14 @@ $pag_u_content = ["content0"=>"view/html/usuario/content-body-0.html",
 //----------------------------------------------------------------------------------------------------//
 
 //---------------------------------------archivos del usuario-negocio-----------------------------------------------------------------//
-$pag_un_activa = ["header"=>"view/html/negocio-activa/header.html","navigation"=>"view/html/negocio-activa/navigation.html"];
-$pag_un_activa_content = ["content0"=>"view/html/negocio-activa/content-body-0.html",
+$pag_activa = ["header"=>"view/html/negocio-activa/header.html","navigation"=>"view/html/negocio-activa/navigation.html"];
+$pag_activa_content = ["content0"=>"view/html/negocio-activa/content-body-0.html",
                    "content1"=>"view/html/negocio-activa/content-body-1.html",
                    "content2"=>"view/html/negocio-activa/content-body-2.html"];
 
 
-$pag_un_inactiva = ["header"=>"view/html/negocio-inactiva/header.html","navigation"=>"view/html/negocio-inactiva/navigation.html"];
-$pag_un_inactiva_content = ["content0"=>"view/html/negocio-inactiva/content-body-0.html",
+$pag_inactiva = ["header"=>"view/html/negocio-inactiva/header.html","navigation"=>"view/html/negocio-inactiva/navigation.html"];
+$pag_inactiva_content = ["content0"=>"view/html/negocio-inactiva/content-body-0.html",
 "content1"=>"view/html/negocio-inactiva/content-body-1.html",
 "content2"=>"view/html/negocio-inactiva/content-body-2.html"];
 //-------------------------------------------------------------------------------------------------------------------------------------//
@@ -38,7 +38,7 @@ $pag_un_inactiva_content = ["content0"=>"view/html/negocio-inactiva/content-body
 
 //----Carga el header----//
 function CargarHeader(){
-    global $nav, $pag_sp, $pag_df, $pag_u, $pag_un_activa, $pag_un_inactiva;
+    global $nav, $pag_sp, $pag_df, $pag_u, $pag_activa, $pag_inactiva;
     switch($nav){
 
         case 0: require_once($pag_df["header"]);
@@ -50,10 +50,10 @@ function CargarHeader(){
         case 2: require_once($pag_u["header"]);
         break;
 
-        case 3: require_once($pag_un_activa["header"]);
+        case 3: require_once($pag_activa["header"]);
         break;
 
-        case 4: require_once($pag_un_inactiva["header"]);
+        case 4: require_once($pag_inactiva["header"]);
         break;
 
     }
@@ -63,7 +63,7 @@ function CargarHeader(){
 
 //----Carga la navigation----//
 function cargarNavegacion(){
-    global $nav, $pag_sp, $pag_df, $pag_u, $pag_un_activa, $pag_un_inactiva;
+    global $nav, $pag_sp, $pag_df, $pag_u, $pag_activa, $pag_inactiva;
     switch($nav){
 
         case 0: require_once($pag_df["navigation"]);
@@ -75,10 +75,10 @@ function cargarNavegacion(){
         case 2: require_once($pag_u["navigation"]);
         break;
 
-        case 3: require_once($pag_un_activa["navigation"]);
+        case 3: require_once($pag_activa["navigation"]);
         break;
 
-        case 4: require_once($pag_un_inactiva["navigation"]);
+        case 4: require_once($pag_inactiva["navigation"]);
         break;
 
 
@@ -89,7 +89,7 @@ function cargarNavegacion(){
 
 //---------------------------//
 function cargarContenido(){
-    global $page, $nav, $pag_df_content, $pag_sp_content, $pag_u_content, $pag_un_activa_content, $pag_un_inactiva_content;
+    global $page, $nav, $pag_df_content, $pag_sp_content, $pag_u_content, $pag_activa_content, $pag_inactiva_content;
     switch($nav){
 
         case 0:
@@ -133,13 +133,13 @@ function cargarContenido(){
         case 3:
             switch($page){
 
-                case 0: require_once($pag_un_activa_content["content0"]);
+                case 0: require_once($pag_activa_content["content0"]);
                     break;
 
-                case 1: require_once($pag_un_activa_content["content1"]);
+                case 1: require_once($pag_activa_content["content1"]);
                     break;
 
-                case 2: require_once($pag_un_activa_content["content2"]);
+                case 2: require_once($pag_activa_content["content2"]);
                     break;
             }
         break;
@@ -147,13 +147,13 @@ function cargarContenido(){
         case 4:
             switch($page){
 
-                case 0: require_once($pag_un_inactiva_content["content0"]);
+                case 0: require_once($pag_inactiva_content["content0"]);
                     break;
 
-                case 1: require_once($pag_un_inactiva_content["content1"]);
+                case 1: require_once($pag_inactiva_content["content1"]);
                     break;
 
-                case 2: require_once($pag_un_inactiva_content["content2"]);
+                case 2: require_once($pag_inactiva_content["content2"]);
                     break;
             }
         break;

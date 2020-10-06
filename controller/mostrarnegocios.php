@@ -71,7 +71,7 @@ function cargarImagen($a){
 
     if($a == null){
 
-        return "view/assets/media/image/user/default.jpg";
+        return 'view/assets/media/image/user/default.png';
 
     }else{
 
@@ -85,7 +85,6 @@ function cargarImagen($a){
 
 
 
-
 /*Este bucle itera sobre el recurso devuelto por el método mostrar y almacena en registro cada uno de los negocios */
 //----------------------------------------------------------------------//
 foreach($mostrar->mostrar($ordenar, $empezar, $entradas) as $registro){
@@ -94,7 +93,7 @@ foreach($mostrar->mostrar($ordenar, $empezar, $entradas) as $registro){
     <td>
 
         <a href='product-detail.html' class='d-flex align-items-center'>
-            <img width='50' src=".cargarImagen($registro["imagen"])."
+        <img width='50' src=".cargarImagen($registro["imagen"])."
                 class='rounded mr-3' alt='Vase'>
             <span>".$registro["ID"]."</span>
         </a>

@@ -24,7 +24,7 @@ class conexion{
 
         }catch(Exception $e){
 
-            die("Error al intentar establecer conexion con la base de").$e->getMessage();
+            die("Error al intentar establecer conexion con la base de datos").$e->getMessage();
 
         }
 

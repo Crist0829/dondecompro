@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="view/vendors/dataTable/datatables.min.css" type="text/css">
 
 <!-- App css -->
-    <link rel="stylesheet" href="view//assets/css/app.min.css" type="text/css">
+    <link rel="stylesheet" href="view/assets/css/app.min.css" type="text/css">
 
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>

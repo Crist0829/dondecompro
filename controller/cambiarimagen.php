@@ -20,7 +20,7 @@ crean otras con los datos nuevos*/
 $nombre = $_SESSION["nombre"];
 $tamano = $_FILES["imagen"]["size"];
 $tipo = $_FILES["imagen"]["type"];
-$carpeta_destino = $_SERVER["DOCUMENT_ROOT"]."/Php/dondecompro/view/assets/media/image/user/";
+$carpeta_destino = $_SERVER["DOCUMENT_ROOT"]."/view/assets/media/image/user/";
 $ran = rand(0, 100000);
 
 //--Establece la extensión de la imagen a jpg--//

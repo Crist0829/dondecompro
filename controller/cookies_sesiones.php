@@ -28,7 +28,8 @@ function cookies(){
                 $_SESSION["correo"] = $_COOKIE["correo"];
                 $_SESSION["fecha"] = $_COOKIE["fecha"];
                 $_SESSION["imagen"] = $_COOKIE["imagen"];
-                $_SESSION["estado"] = $_COOKIE["estado"];   
+                $_SESSION["estado"] = $_COOKIE["estado"];
+
                 return 2;
 
             break;
@@ -40,7 +41,8 @@ function cookies(){
                 $_SESSION["correo"] = $_COOKIE["correo"];
                 $_SESSION["fecha"] = $_COOKIE["fecha"];
                 $_SESSION["imagen"] = $_COOKIE["imagen"];
-                $_SESSION["estado"] = $_COOKIE["estado"]; 
+                $_SESSION["estado"] = $_COOKIE["estado"];
+
                 return 3;
                         
             break;
@@ -74,7 +76,7 @@ function session(){
 
             case 1:
 
-                require_once("model/conect_db.php");
+                require("model/conect_db.php");
 
                 $nombre = $_SESSION["nombre"];
 
@@ -89,9 +91,6 @@ function session(){
                     return 4;
 
                 }
-
-                
-                
 
             break;
     

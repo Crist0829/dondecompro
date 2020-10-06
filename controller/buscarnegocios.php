@@ -66,7 +66,7 @@ function cargarImagen($a){
 
     if($a == null){
 
-        return "view/assets/media/image/user/default.jpg";
+        return 'view/assets/media/image/user/default.png';
 
     }else{
 

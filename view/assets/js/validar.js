@@ -11,7 +11,7 @@
 
 /* Esta función se ejecuta cuando el usuario cambia algo en el campo de texto "nombre"
  Y evalua si el usuario ha escrito el nombre correctamente, es decir, sin comenzar con
- un numero, que no tenga más de 30 caracteres, que no esté vació y que el nombre de usuario no se hay registrado previamente
+ un numero, que no tenga más de 30 caracteres, que no esté vació y que el nombre de usuario no se haya registrado previamente
  si no es así establece que el valor de la variable auxiliar aux_n  es 0*/
 //--------------------//
 function fNombre(){
