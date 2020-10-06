@@ -1437,9 +1437,9 @@ textarea {
 
 .card-per2{
   
-  padding: 2rem;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  padding: 2px !important;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   border: 1px solid #20c42062 !important;
   border-radius: 0.25rem;
 

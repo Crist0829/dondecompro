@@ -51,6 +51,24 @@ if(isset($_SESSION["nombre"]) and isset($_SESSION["correo"])){
 
 }
 
+if($nav == 3){
+
+    require_once("model/base_datos_usuarios.php");
+
+    $nombre = $_SESSION["nombre"];
+
+    $consultar = new consultarUsuario();
+
+    if(!$consultar->consultarEstado($nombre)){
+
+        $nav = 4;
+
+    }
+
+}
+
+
+
 //------------------------------------//
 
 

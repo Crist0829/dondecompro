@@ -67,17 +67,19 @@ if($precio_bajo == 0){
 
             if($aux == 0){
 
-                echo "<div class = 'card'>";
-                echo "<p class = 'text-center'>El precio más bajo lo tiene: <strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p><br>";
-                echo "<p class= 'texto-verde text-center'>".$negocios[$i][1]."</p>";
+                echo "<div class = 'card-per2'>";
+                echo "<p class = 'text-center'>El precio más bajo lo tiene: </p> <br>
+                <p class=' text-center'><strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p><br>";
+                echo "<p class= 'texto-verde text-center'>$ ".$negocios[$i][1]."</p> <br>";
                 echo "</div>";
                 $aux ++;
 
             }else{
 
-                echo "<div class = 'card'>";
-                echo "<p class = 'text-center'>TAMBIÉN: <strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p><br>";
-                echo "<p class= 'texto-verde text-center'>".$negocios[$i][1]."</p>";
+                echo "<div class = 'card-per2'>";
+                echo "<p class = 'text-center'>TAMBIÉN:</p><br>
+                <p class=' text-center'> <strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p><br>";
+                echo "<p class= 'texto-verde text-center'>$ ".$negocios[$i][1]."</p> <br>";
                 echo "</div>";
 
                 $aux ++;
@@ -112,16 +114,18 @@ if($precio_bajo == 0){
             if($aux == 0){
 
                 echo "<div class = 'card-per2'>";
-                echo "<p class = 'text-center'>Otro precio lo tiene: <strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p><br>";
-                echo "<p class= 'texto-verde text-center'>".$negocios[$i][1]."</p>";
+                echo "<p class = 'text-center'>Otro precio lo tiene:</p> <br>
+                <p class='text-center'><strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p> <br>";
+                echo "<p class= 'texto-verde text-center'>$ ".$negocios[$i][1]."</p>";
                 echo "</div>";
                 $aux ++;
 
             }else{
 
                 echo "<div class = 'card-per2'>";
-                echo "<p class = 'text-center'>TAMBIÉN: <strong class = 'texto-verde'> ".$negocios[$i][0]." </strong> </p><br>";
-                echo "<p class= 'texto-verde text-center'>".$negocios[$i][1]."</p>";
+                echo "<p class = 'text-center'>TAMBIÉN: </p> </br>
+                <p class='text-center'> <strong class = 'texto-verde'> ".$negocios[$i][0]." </strong></p> <br>";
+                echo "<p class= 'texto-verde text-center'>$ ".$negocios[$i][1]."</p> <br>";
                 echo "</div>";
 
                 $aux ++;
@@ -142,12 +146,12 @@ $tope = count($precios) - 1;
 
 echo "<div class = 'text-center'>
 
-<div class='text-center d-inline-flex'>
-<a href='#an".$codigo."'><button class='btn btn-dark btn-sm' onClick ='ocultar()'>OCULTAR</button></a>
+<div>
+<a href='#an".$codigo."'><button class='btn btn-dark btn-block' onClick ='ocultar()'>OCULTAR</button></a>
 </div>
 
-<div class='text-center d-inline-flex card-per3'>
-    <a href='#an".$codigo."'><p class = 'btn btn-success' onClick = 'otroPrecio(".$codigo.", $tope)'><i class='ti-search mr-2'></i>Más precios</p></a>
+<div>
+    <a href='#an".$codigo."'><p class = 'btn btn-success btn-block' onClick = 'otroPrecio(".$codigo.", $tope)'><i class='ti-search mr-2'></i>Más precios</p></a>
 </div>
 
 </div>";

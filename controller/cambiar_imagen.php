@@ -37,6 +37,8 @@ if($tipo == "image/jpeg"){
 
 $nombre_imagen = $_SESSION["nombre"]."_imagen_".$ran.".".$extension;
 
+$nombre_imagen = str_replace(" ", "", $nombre_imagen);
+
 if($tamano < 2000000){
     
     if($tipo == "image/jpeg" || $tipo == "image/jpg" || $tipo == "image/png" || $tipo == "image/gif"){

@@ -181,13 +181,9 @@
                                             <h6 class="text-center">IMAGEN</h6>
                                             <img width="100" src=<?php cargarImagen() ?> alt="...">
                                         </div>
-                                    
-
                                         </div>
-                                    
-
                                             
-                                        <form form action="controller/cambiar_imagen.php" method="POST" enctype="multipart/form-data"">
+                                        <form form action="controller/cambiar_imagen.php" method="POST" enctype="multipart/form-data">
                                             <div class="row">
                                                 <div class="col-sm-auto">
                                                     <div class="form-group">
@@ -204,15 +200,20 @@
                                             
                                                         <input type="submit" class="btn btn-success btn-block" value="GUARDAR">
                                             
+                                                    </div class="form-group">
+
+                                                    <div>
+                                                        <a href="controller/borrar_imagen.php" class="btn btn-dark btn-block" >Eliminar imagen actual</a>
                                                     </div>
+                                                    
+                                                    </div>
+
                                                 </div>
                                             </div>
                                         </form>
-
-                            
                                         
+                                        </div>
                                     </div>
-                            
                             </div>
                             
 

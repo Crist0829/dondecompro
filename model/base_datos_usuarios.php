@@ -589,6 +589,28 @@ class CambiarImagen extends conexion{
 
     }
 
+    public function eliminar($nombre){
+
+        $this->consulta = "UPDATE usuarios_bd SET imagen = NULL where nombre = :nombre";
+        
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":nombre", $nombre);
+        $resultado->execute();
+
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+    
+        }
+    }
+
 
 }
 

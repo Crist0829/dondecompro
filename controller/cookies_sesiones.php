@@ -75,23 +75,7 @@ function session(){
             break;
 
             case 1:
-
-                require("model/base_datos_usuarios.php");
-
-                $nombre = $_SESSION["nombre"];
-
-                $consultar = new consultarUsuario();
-
-                if($consultar->consultarEstado($nombre)){
-
-                    return 3;
-
-                }else{
-
-                    return 4;
-
-                }
-
+                return 3;
             break;
     
         }

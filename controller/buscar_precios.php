@@ -23,11 +23,11 @@ foreach($busqueda->buscar($termino, $empezar, $entradas) as $registro){
 
     echo "<tr id = 'an".$registro["Codigo"]."'>
             <td> 
-                    <div class='text-center'>
-                        <p class = 'texto-verde'>".$registro["Descripcion"]."</p>
+                    <div>
+                        <p class = 'texto-verde-peque'>".$registro["Descripcion"]."</p>
                     </div>
 
-                    <div class='text-center'>
+                    <div>
                         <button class='btn btn-success' onClick ='comparar(".$registro["Codigo"].")'>¡EL MEJOR PRECIO!</button>
                     </div>
 
