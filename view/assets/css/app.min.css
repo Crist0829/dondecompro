@@ -1428,6 +1428,14 @@ textarea {
   border: none;
 }
 
+.card-per4{
+
+
+  width: 100px !important;
+  height: 5000px !important;
+
+}
+
 .card-per3{
 
   margin-right: 1rem;
@@ -1536,7 +1544,7 @@ textarea {
 .card .card-scroll,
 .app-block .app-content .app-action .card-scroll {
   height: 300px;
-  overflow: auto;
+  overflow: scroll;
 }
 
 .card.purple,

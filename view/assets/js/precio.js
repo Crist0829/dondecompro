@@ -1,6 +1,13 @@
 aux_pagina = 1;
 aux2_pagina = 0;
 
+window.onload = function(){
+
+    document.getElementById("productos").innerHTML = "<div class = 'card-per4 text-center'> \n\
+        <div></div></div>"
+
+}
+
 function buscar(){
 
     var termino = document.getElementById("termino").value;
@@ -192,8 +199,9 @@ function ocultar(){
 
     if(termino == ""){
 
-        document.getElementById("productos").innerHTML = "";
-
+        document.getElementById("productos").innerHTML = ""
+        
+        aux_no_content = 0;
 
     }else{
 
