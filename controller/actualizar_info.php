@@ -1,6 +1,6 @@
 <?php 
 
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_usuarios.php");
 session_start();
 
 $nombre = htmlentities(addslashes($_POST["nombre"]));

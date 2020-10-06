@@ -15,7 +15,7 @@ window.onload = function(){
         
       }
     }
-    xhttp.open("GET", "controller/mostrarnegocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+    xhttp.open("GET", "controller/mostrar_negocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
     xhttp.send();
 
 }
@@ -42,7 +42,7 @@ function filtrar(){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarnegocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_negocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -60,7 +60,7 @@ function filtrar(){
 
         }
 
-        xhttp.open("GET", "controller/buscarnegocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_negocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -86,7 +86,7 @@ function filtrarDarde(){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarnegocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux2_pagina, true);
+        xhttp.open("GET", "controller/mostrar_negocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux2_pagina, true);
         xhttp.send();
             
 
@@ -104,7 +104,7 @@ function filtrarDarde(){
 
         }
 
-        xhttp.open("GET", "controller/buscarnegocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux2_pagina, true);
+        xhttp.open("GET", "controller/buscar_negocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux2_pagina, true);
         xhttp.send();
 
         }
@@ -143,7 +143,7 @@ function siguiente(ultima){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarnegocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_negocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -161,7 +161,7 @@ function siguiente(ultima){
 
         }
 
-        xhttp.open("GET", "controller/buscarnegocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_negocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -199,7 +199,7 @@ function anterior(ultima){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarnegocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_negocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -217,7 +217,7 @@ function anterior(ultima){
 
         }
 
-        xhttp.open("GET", "controller/buscarnegocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_negocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -247,7 +247,7 @@ function pagina(pagina){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarnegocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_negocios.php?entradas="+entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -265,7 +265,7 @@ function pagina(pagina){
 
         }
 
-        xhttp.open("GET", "controller/buscarnegocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_negocios.php?termino=" + termino + "&entradas=" + entradas + "&ordenar=" + ordenar + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }

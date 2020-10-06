@@ -1,6 +1,6 @@
 <?php 
 
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_usuarios.php");
 
 /*Se captura la contraseña actual, la nueva y repite (que es la confirmación de la nueva contraseña)
 luego se evalua, si cualquiera de las 3 variables está vacía se retorna con un error,

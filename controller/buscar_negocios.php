@@ -1,66 +1,114 @@
-<?php 
-
-require_once("../model/conect_db_productos.php");
-require_once("../model/conect_db.php");
-
-session_start();
-
-/*Se toma el nombre del usuario (negocio que inició sesión)
-  se consulta si existe en la base de datos y si tiene una cuenta activa sí es así
-  se extrae el ID para poder acceder a su tabla de productos
-  si no es así retornará retornará un error*/
-
-//------------------------------------------//
-    $nombre = $_SESSION["nombre"];
-    $consultar = new consultarUsuario();
-    $registro = $consultar->datos($nombre);
-    $id = $registro["ID"];
-//------------------------------------------//
-
-if($consultar->consultarEstado($nombre) && $id !== ""){ // If global, solo se ejecutará todo el código si se cumple este criterio
-
-$nombre_db = "productos_".$id; //Nombre de la tabla de productos del usuario que hace la petición.
+<?php
+require_once("../model/base_datos_usuarios.php");
 
 /*Variables y objeto que sirven para manipular la consulta que se hace a la base de datos */
-//------------------------------------------//
-    $busqueda = new Productos($nombre_db); // Este objeto es el que tiene los diferentes métodos para mostrar la tabla de negocios al cargar el documento.
+//------------------------//
+    $busqueda = new Negocio(); // Este objeto es el que tiene los diferentes métodos para mostrar la tabla de negocios al cargar el documento.
 
-    $termino = $_GET["termino"];//El termino de la busqueda.
-    $rubro = $_GET["rubro"]; //Se captura "ordenar" que se utilizará para ordenar la consulta de manera ascendiente o descendiente.
+    $ordenar = $_GET["ordenar"]; //Se captura "ordenar" que se utilizará para ordenar la consulta de manera ascendiente o descendiente.
     $entradas = $_GET["entradas"];// Se Captura el numero de entradas que va a tener la pagina de la tabla
     $pagina = $_GET["pagina"];// la pagina en la que se encuentre en la paginación.
+    $termino = $_GET["termino"];// El termino de la busquedad (Lo que ha escrito el usuario).
 
-    $total_filas = $busqueda->totalFilasBusqueda($termino, $rubro); //El total de filas que devuelve la consulta.
+
+    $total_filas = $busqueda->totalFilasBusqueda($termino); //El total de filas que devuelve la consulta.
     $total_paginas = ceil($total_filas/$entradas);// El total de paginas que va a tener la paginación.
     $empezar = ($pagina - 1) * $entradas;//Esta es la variable que se encarga de indicarle a la consulta donde debe empezar (Se utiliza en el primer parametro del LIMIT)
 
-//------------------------------------------//
+//------------------------//
 
-/*Este bucle itera sobre el recurso devuelto por el método buscar y almacena en registro cada uno de los negocios */
+
+
+/*Estas funciones se encargan de mostrar elementos en el tr de la tabla de negocios información de la consulta */
+
+//--Esta función muestra el estado de la cuenta (ACTIVA O INACTIVA)--/
+//-------------------//
+function estado($a){
+
+    if($a == 1){
+
+        return "<p class='btn btn-outline-success'>ACTIVA</p>";
+
+    }else{
+
+        return "<p class='btn btn-outline-danger'>INACTIVA</p>";
+
+    }
+
+    
+
+
+}
+//-------------------//
+
+/*Esta funcion muestra el botón "DAR DE ALTA" o "DAR DE BAJA" dependiendo del estado y pasa como parametro el ID y el estado
+ a la función darde() que se encarga de darle de alta o de baja  a un negocio en la base de datos */
+//---------------------------// 
+function darDe($estado,$ID){
+
+    if($estado == 1){
+
+        return "<a href=# class='btn btn-outline-dark' onClick='darde($estado, $ID)'>DAR DE BAJA</a>";
+
+    }else{
+
+        return "<a href=# class='btn btn-outline-light' onClick='darde($estado, $ID)'>DAR DE ALTA</a>";
+
+    }
+
+
+}
+//---------------------------//
+
+/*Esta funcion carga la imagen del negocio, sino tiene imagen, carga la imagen por defecto */
+//-------------------------//
+function cargarImagen($a){
+
+    if($a == null){
+
+        return 'view/assets/media/image/user/default.png';
+
+    }else{
+
+        return $a;
+
+    }
+
+}
+//-------------------------//
+
+
+/*Este bucle itera sobre el recurso devuelto por el método mostrar y almacena en registro cada uno de los negocios */
 //----------------------------------------------------------------------//
-foreach($busqueda->buscar($termino, $rubro, $empezar, $entradas) as $registro){
+foreach($busqueda->buscar($termino, $ordenar, $empezar, $entradas) as $registro){
 
-    echo "<tr>";
-    echo "<td><small>".$registro["Codigo"]."</small></td>";
-    echo "<td>".$registro["Descripcion"]."</td>";
-    echo "<td>".$registro["Rubro"]."</td>";
-    echo "<td>"; 
-    echo "<div class='row'>";
-    echo "<div class='col-md-4'>";
-    echo "<div class='form-group'>";
-    echo "<input type='text' class='form-control' placeholder='".$registro["Precio"]."' id='".$registro["Codigo"]."' onChange='cambioPrecio()'>";
-    echo "</div>";
-    echo "</div>";
-    echo "<div class='col-md-4'>";
-    echo "<div class='form-group'>";
-    echo "<input type='submit' value = 'CAMBIAR' onClick='cambiar(".$registro["Codigo"].")'class='btn btn-success btn-sm'>";
-    echo "</div>";
-    echo "</div>";
-    echo "</div>";
-    echo "</td>";    
-    echo "</tr>";
+    echo "<tr>
+    <td>
+
+        <a href='product-detail.html' class='d-flex align-items-center'>
+            <img width='50' src=".cargarImagen($registro["imagen"])."
+                class='rounded mr-3' alt='Vase'>
+            <span>".$registro["ID"]."</span>
+        </a>
+
+    </td>
+
+    <td>".$registro["nombre"]."</td>
+
+    <td>".$registro["correo"]."</td>
+
+    <td>".estado($registro["estado"])."</td>
+
+    <td class='text-right'>
+
+    ".darDe($registro["estado"],$registro["ID"])."
+
+    </td>
+                    
+</tr>";
 }
 //----------------------------------------------------------------------//
+
 
 
 //-------------------------------Paginación----------------------------------------//
@@ -92,6 +140,9 @@ if(($pagina + 2) % 3 == 0){
     $segunda_pagina = $tercera_pagina - 1;
 
 }
+
+
+
 
 function active($pagina){
     global $activa;
@@ -134,10 +185,9 @@ function adelante($pagina){
 
 }
 
-
 if($total_paginas == 0){
 
-    echo "<td colspan = 4>
+    echo "<td colspan = 5>
     <div aria-label='...' class='d-flex justify-content-center'>
         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
             <li class='page-item' >
@@ -164,7 +214,7 @@ if($total_paginas == 0){
 
         case 1: 
 
-            echo "<td colspan=4>
+            echo "<td colspan=5>
 
                     <div aria-label='...' class='d-flex justify-content-center'>
                         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
@@ -181,7 +231,7 @@ if($total_paginas == 0){
 
         case 2:
 
-            echo "<td colspan=4>
+            echo "<td colspan=5>
 
             <div aria-label='...' class='d-flex justify-content-center'>
                 <ul class='pagination pagination-rounded d-flex align-self-baseline'>
@@ -203,7 +253,7 @@ if($total_paginas == 0){
 
         case 3:
 
-            echo "<td colspan=4>
+            echo "<td colspan=5>
 
                     <div aria-label='...' class='d-flex justify-content-center'>
                         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
@@ -232,7 +282,7 @@ if($total_paginas == 0){
 
 }else{
 
-    echo "<td colspan=4>
+    echo "<td colspan=5>
 
     <div aria-label='...' class='d-flex justify-content-center'>
         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
@@ -274,11 +324,20 @@ if($total_paginas == 0){
 //----------------------------------------------------------------------------------//
 
 
-}else{ //Else del if global
-
-    echo "TU CUENTA ESTÁ INACTIVA";
 
 
-}
+
+
+
+
+
+
+
+
 
 ?>
+
+
+
+
+

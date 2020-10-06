@@ -1,7 +1,7 @@
 <?php 
 
-require_once("../model/conect_db_productos.php");
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_productos.php");
+require_once("../model/base_datos_usuarios.php");
 
 session_start();
 
@@ -10,38 +10,36 @@ session_start();
   se extrae el ID para poder acceder a su tabla de productos
   si no es así retornará retornará un error*/
 
-//---------------------------------------//
+//------------------------------------------//
     $nombre = $_SESSION["nombre"];
     $consultar = new consultarUsuario();
     $registro = $consultar->datos($nombre);
     $id = $registro["ID"];
-//---------------------------------------//
-
+//------------------------------------------//
 
 if($consultar->consultarEstado($nombre) && $id !== ""){ // If global, solo se ejecutará todo el código si se cumple este criterio
 
 $nombre_db = "productos_".$id; //Nombre de la tabla de productos del usuario que hace la petición.
 
 /*Variables y objeto que sirven para manipular la consulta que se hace a la base de datos */
+//------------------------------------------//
+    $busqueda = new Productos($nombre_db); // Este objeto es el que tiene los diferentes métodos para mostrar la tabla de negocios al cargar el documento.
 
-//------------------------------------//
-$mostrar = new Productos($nombre_db); // Este objeto es el que tiene los diferentes métodos para mostrar la tabla de productos al cargar el documento.
+    $termino = $_GET["termino"];//El termino de la busqueda.
+    $rubro = $_GET["rubro"]; //Se captura "ordenar" que se utilizará para ordenar la consulta de manera ascendiente o descendiente.
+    $entradas = $_GET["entradas"];// Se Captura el numero de entradas que va a tener la pagina de la tabla
+    $pagina = $_GET["pagina"];// la pagina en la que se encuentre en la paginación.
 
-$rubro = $_GET["rubro"]; //Se captura "rubro" que se utilizará para filtrar la consulta.
-$entradas = $_GET["entradas"];// Se Captura el numero de entradas que va a tener la pagina de la tabla
-$pagina = $_GET["pagina"];// la pagina en la que se encuentre en la paginación.
+    $total_filas = $busqueda->totalFilasBusqueda($termino, $rubro); //El total de filas que devuelve la consulta.
+    $total_paginas = ceil($total_filas/$entradas);// El total de paginas que va a tener la paginación.
+    $empezar = ($pagina - 1) * $entradas;//Esta es la variable que se encarga de indicarle a la consulta donde debe empezar (Se utiliza en el primer parametro del LIMIT)
 
-$total_filas = $mostrar->totalFilas($rubro); //El total de filas que devuelve la consulta.
-$total_paginas = ceil($total_filas/$entradas);// El total de paginas que va a tener la paginación.
-$empezar = ($pagina - 1) * $entradas;//Esta es la variable que se encarga de indicarle a la consulta donde debe empezar (Se utiliza en el primer parametro del LIMIT)
+//------------------------------------------//
 
-//-------------------------------------//
-
-
-/*Este bucle itera sobre el recurso devuelto por el método mostrar y almacena en registro cada uno de los negocios */
+/*Este bucle itera sobre el recurso devuelto por el método buscar y almacena en registro cada uno de los negocios */
 //----------------------------------------------------------------------//
-foreach($mostrar->mostrar($rubro, $empezar, $entradas) as $registro){
-    
+foreach($busqueda->buscar($termino, $rubro, $empezar, $entradas) as $registro){
+
     echo "<tr>";
     echo "<td><small>".$registro["Codigo"]."</small></td>";
     echo "<td>".$registro["Descripcion"]."</td>";
@@ -63,7 +61,6 @@ foreach($mostrar->mostrar($rubro, $empezar, $entradas) as $registro){
     echo "</tr>";
 }
 //----------------------------------------------------------------------//
-
 
 
 //-------------------------------Paginación----------------------------------------//
@@ -95,9 +92,6 @@ if(($pagina + 2) % 3 == 0){
     $segunda_pagina = $tercera_pagina - 1;
 
 }
-
-
-
 
 function active($pagina){
     global $activa;
@@ -139,6 +133,7 @@ function adelante($pagina){
     }
 
 }
+
 
 if($total_paginas == 0){
 
@@ -280,7 +275,6 @@ if($total_paginas == 0){
 
 
 }else{ //Else del if global
-
 
     echo "TU CUENTA ESTÁ INACTIVA";
 

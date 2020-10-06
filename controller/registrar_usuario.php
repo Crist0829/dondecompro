@@ -1,7 +1,6 @@
 <?php
 
-require_once("../model/conect_db.php");
-
+require_once("../model/base_datos_usuarios.php");
 
 $nombre = htmlentities(addslashes($_POST["nombre"])); 
 $correo = htmlentities(addslashes($_POST["correo"])); 
@@ -13,7 +12,6 @@ $fecha = $a_fecha["year"]."-".$a_fecha["mon"]."-".$a_fecha["mday"];
 $clave_cifrada = password_hash($clave, PASSWORD_DEFAULT);
 $activacion_sin = rand(0, 99999);
 $activacion_con = password_hash($activacion_sin, PASSWORD_DEFAULT);
-
 
 
 $conexion = new insertarUsuario();

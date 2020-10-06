@@ -76,7 +76,7 @@ function session(){
 
             case 1:
 
-                require("model/conect_db.php");
+                require("model/base_datos_usuarios.php");
 
                 $nombre = $_SESSION["nombre"];
 

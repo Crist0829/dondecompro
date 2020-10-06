@@ -1,6 +1,6 @@
 <?php 
 
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_usuarios.php");
 
 $valor = htmlentities(addslashes($_POST["nombre_u"]));
 $clave = htmlentities(addslashes($_POST["clave_u"]));
@@ -19,8 +19,6 @@ if($usern->consultar($valor) || $userc->consultar($valor)){
     }
 
 }
-
-
 
 
 

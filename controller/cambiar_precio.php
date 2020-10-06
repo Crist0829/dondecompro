@@ -1,7 +1,7 @@
 <?php 
 
-require_once("../model/conect_db.php");
-require_once("../model/conect_db_productos.php");
+require_once("../model/base_datos_usuarios.php");
+require_once("../model/base_datos_productos.php");
 
 session_start();
 

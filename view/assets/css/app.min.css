@@ -999,7 +999,7 @@ textarea {
 }
 
 .custom-file-input:focus ~ .custom-file-label {
-  border-color: #7c8ce8;
+  border-color: #20C420;
   box-shadow: none;
 }
 
@@ -8200,7 +8200,7 @@ body.dark .dropdown-menu .border-top {
 }
 
 body.dark .custom-file-label {
-  border-color: #50535a;
+  border-color: #20c420;
   background-color: #2c2d32;
   color: inherit;
 }

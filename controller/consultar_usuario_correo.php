@@ -1,6 +1,6 @@
 <?php 
 
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_usuarios.php");
 
 /*--- Este bloque consulta si existe un usuario con el nombre que el usuario digitó
       si es así, devuelve 1, sino devuelve 0 y luego en el archivo validar.js 

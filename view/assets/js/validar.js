@@ -172,14 +172,14 @@ function validar(){
 
     if(!clicencia){
 
-        alert("Para registrarte debes estar de acuerdo con nuestros términos de uso y privacidad");
+        swal("Para registrarte debes estar de acuerdo con nuestros términos de uso y privacidad");
         return false;
 
     }else{
 
         if(aux_n == 0 || aux_c == 0 || fClave() == 0 || frClave() == 0){
 
-            alert("Verifique los datos para poder continuar");
+            swalt("Verifique los datos para poder continuar");
             return false;
 
      }
@@ -236,6 +236,7 @@ function validarLogin(){
 
     if(auxlog === 1){
 
+        swal("Nombre de usuario incorrecto")
         return false;
 
     }

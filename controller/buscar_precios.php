@@ -1,8 +1,8 @@
 <?php 
 
-require_once("../model/conect_db_productos.php");
+require_once("../model/base_datos_productos.php");
 
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_usuarios.php");
 
 $busqueda = new Precios();
 
@@ -23,13 +23,9 @@ foreach($busqueda->buscar($termino, $empezar, $entradas) as $registro){
 
     echo "<tr id = 'an".$registro["Codigo"]."'>
             <td> 
-                <div class='card-per2'>
-
                     <div class='text-center'>
                         <p class = 'texto-verde'>".$registro["Descripcion"]."</p>
                     </div>
-
-                <hr class = 'hr-per'>
 
                     <div class='text-center'>
                         <button class='btn btn-success' onClick ='comparar(".$registro["Codigo"].")'>¡EL MEJOR PRECIO!</button>
@@ -37,7 +33,7 @@ foreach($busqueda->buscar($termino, $empezar, $entradas) as $registro){
 
                     <div id = '".$registro["Codigo"]."'> 
                     </div>
-                </div>
+                    <hr class = 'hr-per'>
 
             </td>
     </tr>";

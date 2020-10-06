@@ -1,9 +1,6 @@
 <?php
 
-require_once("../model/conect_db.php");
-
-
-
+require_once("../model/base_datos_usuarios.php");
 
 $nombre = htmlentities(addslashes($_POST["nombre"])); 
 $correo = htmlentities(addslashes($_POST["correo"])); 
@@ -24,8 +21,8 @@ if($conexion->insertar_temp($nombre, $correo, $clave_cifrada, $perfil, $estado, 
 
     $para = $correo;
     $titulo = 'Verificación de la cuenta';
-    $mensaje = "Ingresa a este link para verificar tu cuenta:".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con.";
-    $desde = "appdonde@app.dondecomproargentina.com.ar";
+    $mensaje = "Ingresa a este link para verificar tu cuenta:".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con";
+
 
     mail($para, $titulo, $mensaje);
 

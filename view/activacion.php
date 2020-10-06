@@ -1,6 +1,6 @@
 <?php 
 
-require_once("../model/conect_db.php");
+require_once("../model/base_datos_usuarios.php");
 
 
 /*Este código evalua si se ha pasado por la url los datos correctos para 
@@ -49,7 +49,7 @@ if(!isset($_GET["activacion"]) || !isset($_GET["correo"])){
 
             if($registro["perfil"] == 1){
 
-                require_once("../model/conect_db_productos.php");
+                require_once("../model/base_datos_productos.php");
                 $id = $registro["ID"];
                 $nombre = "productos_".$id;
 
@@ -64,7 +64,7 @@ if(!isset($_GET["activacion"]) || !isset($_GET["correo"])){
 
         }else{
 
-            header("location: activaerror.php");
+            header("location: activa-error.php");
 
         }
 

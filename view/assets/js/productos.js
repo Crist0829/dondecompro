@@ -16,7 +16,7 @@ window.onload = function(){
         
       }
     }
-    xhttp.open("GET", "controller/mostrarproductos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+    xhttp.open("GET", "controller/mostrar_productos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
     xhttp.send();
 
 }
@@ -43,7 +43,7 @@ function filtrar(){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarproductos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_productos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -61,7 +61,7 @@ function filtrar(){
 
         }
 
-        xhttp.open("GET", "controller/buscarproductos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_productos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -88,7 +88,7 @@ function filtrarCambiar(){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarproductos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux2_pagina, true);
+        xhttp.open("GET", "controller/mostrar_productos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux2_pagina, true);
         xhttp.send();
             
 
@@ -106,7 +106,7 @@ function filtrarCambiar(){
 
         }
 
-        xhttp.open("GET", "controller/buscarproductos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux2_pagina, true);
+        xhttp.open("GET", "controller/buscar_productos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux2_pagina, true);
         xhttp.send();
 
         }
@@ -144,7 +144,7 @@ function siguiente(ultima){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarproductos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_productos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -162,7 +162,7 @@ function siguiente(ultima){
 
         }
 
-        xhttp.open("GET", "controller/buscarproductos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_productos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -200,7 +200,7 @@ function anterior(ultima){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarproductos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_productos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -218,7 +218,7 @@ function anterior(ultima){
 
         }
 
-        xhttp.open("GET", "controller/buscarproductos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_productos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -248,7 +248,7 @@ function pagina(pagina){
         
     }
     }
-        xhttp.open("GET", "controller/mostrarproductos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/mostrar_productos.php?entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
             
 
@@ -266,7 +266,7 @@ function pagina(pagina){
 
         }
 
-        xhttp.open("GET", "controller/buscarproductos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
+        xhttp.open("GET", "controller/buscar_productos.php?termino=" + termino + "&entradas=" + entradas + "&rubro=" + rubro + "&pagina=" + aux_pagina, true);
         xhttp.send();
 
         }
@@ -310,7 +310,7 @@ function cambiar(codigo){
         
       }
     }
-    xhttp.open("GET", "controller/cambiarprecio.php?codigo=" + codigo + "&precio=" + precio, true);
+    xhttp.open("GET", "controller/cambiar_precio.php?codigo=" + codigo + "&precio=" + precio, true);
     xhttp.send();
     
 

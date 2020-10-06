@@ -38,65 +38,60 @@
         
                                 <div class="card align-items-center">
 
-                                    <div class="card card-per align-items-center">
+                                    <div class="card align-items-center">
                                     <h6 class="card-title texto-verde text-left">INFORMACIÓN DE LA CUENTA</h6>
                                     <div class="d-flex mb-3">
                                         <div class="card-per">
                                             <h6 class="text-center">IMAGEN</h6>
-                                            <img width="200" src=<?php cargarImagen() ?> alt="...">
+                                            <img width="100" src=<?php cargarImagen() ?> alt="...">
                                         </div>
                                     </div>
-        
+                                    
+                                    <div class="card">
                                     <div class="d-flex mb-3">
                                     
-                                        <table class="table">
-                                            <thead>
-
-                                                <th></th>
-                                                <th></th>
-
-                                            </thead>
-
-                                            <tbody>
+                                        <table>
+                                            
                                             <tr>
                                                 <td>NOMBRE:</td>
-                                                <td><small><?php echo $_SESSION["nombre"]; ?></small> </td>
+                                                <td><small class="texto-verde-peque"><?php echo $_SESSION["nombre"]; ?></small> </td>
                                             </tr>
 
                                             <tr>
                                                 <td>CORREO:</td>
-                                                <td><small><?php echo $_SESSION["correo"]; ?></small> </td>
+                                                <td><small class="texto-verde-peque"><?php echo $_SESSION["correo"]; ?></small> </td>
                                             </tr>
 
                                             <tr>
                                                 <td>CUENTA:</td>
-                                                <td ><small>USUARIO</small> </td>
+                                                <td ><small class="texto-verde-peque">USUARIO</small> </td>
                                             </tr>
                                             <tr>
                                                 <td>ESTADO:</td>
-                                                <td><small class="text-center">ACTIVA</small></td>
+                                                <td><small class="texto-verde-peque">ACTIVA</small></td>
                                             </tr>
 
                                             <tr>
-                                                <td>FECHA DE REGISTRO:</td>
-                                                <td> <?php echo $_SESSION["fecha"]; ?></td>
-                                                
+                                                <td colspan="2">FECHA DE REGISTRO:</td>
+                            
                                             </tr>
 
-                                        </tbody>
+                                            <tr><td colspan="2"><small class="text-center texto-verde-peque"><?php echo $_SESSION["fecha"]; ?></small></td></tr>
 
                                         </table>
         
                                     </div>
+                                    </div>
+
                                     </div>
                                     
 
                                 </div>
 
                                 <div class="card align-self-center">
-                                    <div class="card-per">
+                                    <div class="card">
                                         <h6 class="card-title texto-verde">ACTUALIZAR INFORMACIÓN</h6>
-                                    <form onsubmit="return cambiarDatos()" method="POST" action="controller/actualizarinfo.php">
+                                    <form onsubmit="return cambiarDatos()" method="POST" action="controller/actualizar_info.php">
                                     
                                         
                                         <div class="form-group">
@@ -146,7 +141,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h6 class="card-title texto-verde">CAMBIAR CONTRASEÑA</h6>
-                            <form action="controller/cambiarclave.php" method="POST" onsubmit="return cambiarClave()">
+                            <form action="controller/cambiar_clave.php" method="POST" onsubmit="return cambiarClave()">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
@@ -176,44 +171,48 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="card">
-                                <div class="card align-items-center">
-                                    <div class="card card-per align-items-center">
+
+                                    <div class="card align-items-center">
                                     <h6 class="card-title texto-verde text-left"><?php echo $_SESSION["nombre"]; ?></h6>
 
                                     <div class="d-flex mb-3">
 
                                         <div class="card-per">
                                             <h6 class="text-center">IMAGEN</h6>
-                                            <img width="200" src=<?php cargarImagen() ?> alt="...">
+                                            <img width="100" src=<?php cargarImagen() ?> alt="...">
                                         </div>
                                     
 
                                         </div>
-                                        <div>
+                                    
 
                                             
-                                            <form action="controller/cambiarimagen.php" method="POST" enctype="multipart/form-data">
+                                        <form form action="controller/cambiar_imagen.php" method="POST" enctype="multipart/form-data"">
+                                            <div class="row">
+                                                <div class="col-sm-auto">
+                                                    <div class="form-group">
 
-                                                <div class="form-group align-self-center">
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input" name="imagen" id="customFile">
+                                                              <label class="custom-file-label" for="customFile" >Seleccionar</label>
+                                                          </div>
 
-                                                    <label for="mimagen"></label>
-                                                    <input type="file" name="imagen" class="imagen-per">
-
+                                                    </div>
+                                                    
+                                            
+                                                    <div class="form-group"> 
+                                            
+                                                        <input type="submit" class="btn btn-success btn-block" value="GUARDAR">
+                                            
+                                                    </div>
                                                 </div>
+                                            </div>
+                                        </form>
 
-                                                <div class="form-group d-flex align-content-around"> 
-
-                                                    <input type="submit" class="btn btn-success btn-sm" value="GUARDAR">
-
-                                                </div>
-                                                
-     
-                                            </form>
-
-                                        </div>
+                            
                                         
                                     </div>
-                                </div>
+                            
                             </div>
                             
 

@@ -1,21 +1,26 @@
 <?php
-require_once("../model/conect_db.php");
+
+require_once("../model/base_datos_usuarios.php");
+
 
 /*Variables y objeto que sirven para manipular la consulta que se hace a la base de datos */
-//------------------------//
-    $busqueda = new Negocio(); // Este objeto es el que tiene los diferentes métodos para mostrar la tabla de negocios al cargar el documento.
 
-    $ordenar = $_GET["ordenar"]; //Se captura "ordenar" que se utilizará para ordenar la consulta de manera ascendiente o descendiente.
-    $entradas = $_GET["entradas"];// Se Captura el numero de entradas que va a tener la pagina de la tabla
-    $pagina = $_GET["pagina"];// la pagina en la que se encuentre en la paginación.
-    $termino = $_GET["termino"];// El termino de la busquedad (Lo que ha escrito el usuario).
-
-
-    $total_filas = $busqueda->totalFilasBusqueda($termino); //El total de filas que devuelve la consulta.
-    $total_paginas = ceil($total_filas/$entradas);// El total de paginas que va a tener la paginación.
-    $empezar = ($pagina - 1) * $entradas;//Esta es la variable que se encarga de indicarle a la consulta donde debe empezar (Se utiliza en el primer parametro del LIMIT)
 
 //------------------------//
+$mostrar = new Negocio(); // Este objeto es el que tiene los diferentes métodos para mostrar la tabla de negocios al cargar el documento.
+
+$ordenar = $_GET["ordenar"]; //Se captura "ordenar" que se utilizará para ordenar la consulta de manera ascendiente o descendiente.
+$entradas = $_GET["entradas"];// Se Captura el numero de entradas que va a tener la pagina de la tabla
+$pagina = $_GET["pagina"];// la pagina en la que se encuentre en la paginación.
+
+
+$total_filas = $mostrar->totalFilas(); //El total de filas que devuelve la consulta.
+
+$total_paginas = ceil($total_filas/$entradas);// El total de paginas que va a tener la paginación.
+
+$empezar = ($pagina - 1) * $entradas;//Esta es la variable que se encarga de indicarle a la consulta donde debe empezar (Se utiliza en el primer parametro del LIMIT)
+
+//-------------------------------------//
 
 
 
@@ -78,15 +83,17 @@ function cargarImagen($a){
 //-------------------------//
 
 
+
+
 /*Este bucle itera sobre el recurso devuelto por el método mostrar y almacena en registro cada uno de los negocios */
 //----------------------------------------------------------------------//
-foreach($busqueda->buscar($termino, $ordenar, $empezar, $entradas) as $registro){
+foreach($mostrar->mostrar($ordenar, $empezar, $entradas) as $registro){
 
     echo "<tr>
     <td>
 
         <a href='product-detail.html' class='d-flex align-items-center'>
-            <img width='50' src=".cargarImagen($registro["imagen"])."
+        <img width='50' src=".cargarImagen($registro["imagen"])."
                 class='rounded mr-3' alt='Vase'>
             <span>".$registro["ID"]."</span>
         </a>
@@ -108,6 +115,7 @@ foreach($busqueda->buscar($termino, $ordenar, $empezar, $entradas) as $registro)
 </tr>";
 }
 //----------------------------------------------------------------------//
+
 
 
 
@@ -140,9 +148,6 @@ if(($pagina + 2) % 3 == 0){
     $segunda_pagina = $tercera_pagina - 1;
 
 }
-
-
-
 
 function active($pagina){
     global $activa;
@@ -206,7 +211,6 @@ if($total_paginas == 0){
     </div>
 
     </td>";
-
 
 }else if($total_paginas <= 3){
 
@@ -322,14 +326,6 @@ if($total_paginas == 0){
 }
 
 //----------------------------------------------------------------------------------//
-
-
-
-
-
-
-
-
 
 
 
