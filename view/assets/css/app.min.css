@@ -1544,7 +1544,7 @@ textarea {
 .card .card-scroll,
 .app-block .app-content .app-action .card-scroll {
   height: 300px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .card.purple,
