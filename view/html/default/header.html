@@ -61,16 +61,17 @@
                                     <img src="view/assets/media/image/user/default.png"alt="image">
                                 </figure>
                                 <h5 class="text-center">Iniciar Sesión</h5>
+                                <div class="d-flex justify-content-center">
                                     <form action="controller/procesar_login.php" onsubmit="return validarLogin();" method="POST">
                                         <div class="form-group"></div>
                                         <div class="form-group">
                                             <p id="texlogin" class="texto-rojo-peque"></p>
-                                            <input type="text" name="nombre_u" onchange = "validarNombre()" class="form-control" id="nomail" placeholder="Nombre de usuario o email" required autofocus>
+                                            <input type="text" name="nombre_u" onchange = "validarNombre()" class="form-control" id="nomail" placeholder="Usuario o email" required autofocus>
                                         </div>
                                         <div class="form-group d-block justify-content-around">
                                             <input type="password" name = "clave_u" class="form-control"  placeholder="Contraseña" required>
                                         </div>
-                                        <div class="form-group d-flex justify-content-around">
+                                        <div class="form-group">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" name ="recordar" class="custom-control-input" checked="" id="customCheck1">
                                                 <label class="custom-control-label text-muted" for="customCheck1">Recordarme</label>
@@ -87,6 +88,7 @@
                                             <a href="view/registrar-usuario.php" class="btn btn-success btn-block">¡REGÍSTRATE!</a>
                                         </div>
                                     </form>
+                                </div>
                             </div>
                         </div>
                     </li>

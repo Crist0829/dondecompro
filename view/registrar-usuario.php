@@ -30,7 +30,7 @@
     <h3 class="texto-verde"> CREAR CUENTA DE USUARIO</h3>
    
     <div>
-        <img src="assets/media/image/ositos/agregar-usuario.png" alt="image">
+        <figure><img src="assets/media/image/ositos/agregar-usuario.png" alt="image"></figure>
     </div>
     
 
@@ -38,41 +38,39 @@
     <form action="../controller/registrar_usuario.php" method="POST" onsubmit="return validar();">
         <div class="form-group">
 
-            <input type="text" name = "nombre"  id = "nombre" class="form-control" placeholder="Escribe tu nombre de usuario" onchange="fNombre();" require autofocus autocomplete="off">
+            <input type="text" name = "nombre"  id = "nombre" class="form-control" placeholder="Nombre de usuario" onchange="fNombre();" require autofocus >
             <small class="form-text" id="enombre"><i></i>  </small>
 
         </div>
 
         <div class="form-group">
 
-            <input type="email" name = "correo" id = "correo" class="form-control" placeholder="Digita tu email"  onchange="fCorreo();"require autocomplete="off">
+            <input type="email" name = "correo" id = "correo" class="form-control" placeholder="Email"  onchange="fCorreo();"require >
             <small class="form-text" id="ecorreo"><i> </i> </small>
 
         </div>
     
         <div class="form-group">
 
-            <input type="password" name = "clave" id = "clave" class="form-control" placeholder="Establece una contraseña"onchange="fClave();" require autocomplete="off" >
+            <input type="password" name = "clave" id = "clave" class="form-control" placeholder="Contraseña"onchange="fClave();" require >
             <small class="form-text" id="eclave"><i></i>  </small>
 
         </div>
         <div class="form-group">
 
-            <input type="password" name = "rclave" id = "rclave" class="form-control" placeholder="Repite la contraseña" onchange="frClave();"require autocomplete="off">
+            <input type="password" name = "rclave" id = "rclave" class="form-control" placeholder="Repite la contraseña" onchange="frClave();"require>
             <small class="form-text" id="erclave"><i></i>  </small>
 
         </div>
 
-        <div>
-        <label class="custom-radio-checkbox">
-
-            <input class="custom-radio-checkbox__input" id="licencia" type="checkbox">
-            <span class="custom-radio-checkbox__show custom-radio-checkbox__show--checkbox"></span>
-
-            <small><strong>Acepto las condiciones de uso y privacidad</strong></small>
-
-        </label>
+        
+        <div class="form-group">
+        <div class="custom-control custom-checkbox custom-checkbox-success">
+            <input type="checkbox" class="custom-control-input" id="licencia" >
+            <label class="custom-control-label" for="licencia">Acepto los terminos de uso</label>
         </div>
+        </div>
+        
         
         <div>
 
@@ -83,7 +81,7 @@
         <hr class="hr-per">
 
         <p>O PUEDES REGISTRAR UN NEGOCIO</p>
-        <a href="registrar-negocio.php" class="btn btn-success btn-block">CREAR UNA CUENTA DE NEGOCIO</a>
+        <a href="registrar-negocio.php" class="btn btn-success btn-block"><small>REGISTRAR NEGOCIO</small></a>
 
 
 

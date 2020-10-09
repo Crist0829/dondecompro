@@ -5,8 +5,8 @@
 
 //--variables auxiliares para las funciones fNombre y fCorreo respectivamente--//
 //--------------//
-    var aux_n;
-    var aux_c;
+    var aux_n = 0;
+    var aux_c = 0;
 //--------------//
 
 /* Esta función se ejecuta cuando el usuario cambia algo en el campo de texto "nombre"
@@ -172,14 +172,14 @@ function validar(){
 
     if(!clicencia){
 
-        swal("Para registrarte debes estar de acuerdo con nuestros términos de uso y privacidad");
+        swal("Para registrarte debes estar de acuerdo con nuestros términos de uso.");
         return false;
 
     }else{
 
         if(aux_n == 0 || aux_c == 0 || fClave() == 0 || frClave() == 0){
 
-            swalt("Verifique los datos para poder continuar");
+            swal("Verifica los datos para poder continuar.");
             return false;
 
      }
@@ -208,7 +208,7 @@ function validarNombre(){
         
             if(resultado == 0){
 
-                document.getElementById("texlogin").innerHTML = "Nombre de usuario o correo incorrecto";
+                document.getElementById("texlogin").innerHTML = "Nombre de usuario o correo incorrecto.";
                 auxlog = 1;
 
             }else{
@@ -236,7 +236,7 @@ function validarLogin(){
 
     if(auxlog === 1){
 
-        swal("Nombre de usuario incorrecto")
+        swal("Nombre de usuario incorrecto.")
         return false;
 
     }
