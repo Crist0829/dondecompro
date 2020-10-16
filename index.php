@@ -15,19 +15,21 @@
     <!-- Fuente de Google -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Daterangepicker -->
-    <link rel="stylesheet" href="view/vendors/datepicker/daterangepicker.css" type="text/css">
-
-    <!-- DataTable -->
-    <link rel="stylesheet" href="view/vendors/dataTable/datatables.min.css" type="text/css">
-
 <!-- App css -->
     <link rel="stylesheet" href="view/assets/css/app.min.css" type="text/css">
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Meta Etiquetas para el Sw -->
+<meta name="description" content="App Para buscar y comparar precios de productos, en una amplia variedad de negocios">
+<meta name="theme-color" content="#3082ED">
+<meta name="MobileOptimized" content="width">
+<meta name="HandheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="shortcut icon" type="image/png" href="./view/assets/media/icons/icon_192.png">
+<link rel="apple-touch-icon" href="./view/assets/media/icons/donde_compro.png">
+<link rel="apple-touch-startup-image" href="./view/assets/media/icons/icon_256.png">
+<link rel="manifest" href="./manifest.json">
+
 </head>
 <body class="dark">
 <?php require_once("controller/navegacion.php") ?>
@@ -67,5 +69,6 @@
 
 <!-- App scripts -->
 <script src="view/assets/js/app.min.js"></script>
+<script src="view/assets/js/script.js"></script>
 </body>
 </html>
