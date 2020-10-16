@@ -41,9 +41,9 @@ $nombre_db = "productos_".$id; //Nombre de la tabla de productos del usuario que
 foreach($busqueda->buscar($termino, $rubro, $empezar, $entradas) as $registro){
 
     echo "<tr>";
-    echo "<td><small>".$registro["Codigo"]."</small></td>";
-    echo "<td>".$registro["Descripcion"]."</td>";
-    echo "<td>".$registro["Rubro"]."</td>";
+    echo "<td> <p class = 'texto-negro'><small>".$registro["Codigo"]."</small></p></td>";
+    echo "<td><p class = 'texto-negro'>".$registro["Descripcion"]."</p></td>";
+    echo "<td><p class = 'texto-negro'>".$registro["Rubro"]."</p></td>";
     echo "<td>"; 
     echo "<div class='row'>";
     echo "<div class='col-md-4'>";
@@ -109,45 +109,19 @@ function active($pagina){
 
 }
 
-function atras($pagina){
-
-    if($pagina > 1){
-
-        return "<li>
-                    <p> . . . </p>
-                </li>";
-    }
-
-}
-
-function adelante($pagina){
-
-    global $total_paginas;
-
-    if($pagina < $total_paginas){
-
-        return "<li>
-                    <p> . . . </p>
-                </li>";
-
-    }
-
-}
-
-
 if($total_paginas == 0){
 
-    echo "<td colspan = 4>
+    echo "<td colspan = 3>
     <div aria-label='...' class='d-flex justify-content-center'>
         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
             <li class='page-item' >
-                <a class='page-link' href='#'>
+                <a class='page-link' id='a-per-3' href='#'>
                     <i class='ti-angle-left'></i>
                 </a>
             </li>
 
             <li class='page-item' >
-                <a class='page-link' href='#' >
+                <a class='page-link' id='a-per-3' href='#' >
                 <i class='ti-angle-right'></i>
                 </a>
             </li>
@@ -164,13 +138,13 @@ if($total_paginas == 0){
 
         case 1: 
 
-            echo "<td colspan=4>
+            echo "<td colspan=5>
 
                     <div aria-label='...' class='d-flex justify-content-center'>
                         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
     
                             <li class='".active($primera_pagina)."'btn-outline-youtube>
-                                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
                             </li>
     
                         </ul>
@@ -181,17 +155,17 @@ if($total_paginas == 0){
 
         case 2:
 
-            echo "<td colspan=4>
+            echo "<td colspan=5>
 
             <div aria-label='...' class='d-flex justify-content-center'>
                 <ul class='pagination pagination-rounded d-flex align-self-baseline'>
     
                     <li class='".active($primera_pagina)."'btn-outline-youtube>
-                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
                     </li>
     
                     <li class='".active($segunda_pagina)."'>
-                        <a class='page-link' href='#' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
+                        <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
                     </li>
     
                 </ul>
@@ -203,21 +177,21 @@ if($total_paginas == 0){
 
         case 3:
 
-            echo "<td colspan=4>
+            echo "<td colspan=5>
 
                     <div aria-label='...' class='d-flex justify-content-center'>
                         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
     
                             <li class='".active($primera_pagina)."'btn-outline-youtube>
-                                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
                             </li>
     
                             <li class='".active($segunda_pagina)."'>
-                                <a class='page-link' href='#' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
+                                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
                             </li>
     
                             <li class='".active($tercera_pagina)."'>
-                                <a class='page-link' href='#' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
+                                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
                             </li>
     
                         </ul>
@@ -232,34 +206,34 @@ if($total_paginas == 0){
 
 }else{
 
-    echo "<td colspan=4>
+    echo "<td colspan=5>
 
     <div aria-label='...' class='d-flex justify-content-center'>
         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
             <li class='page-item' >
-                <a class='page-link' href='#' onClick='anterior(".$total_paginas.")'>
+                <a class='page-link' href='#' id='a-per-3' onClick='anterior(".$total_paginas.")'>
                     <i class='ti-angle-left'></i>
                 </a>
             </li>
     
-            ".atras($primera_pagina)."
+            
     
             <li class='".active($primera_pagina)."'btn-outline-youtube>
-                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
             </li>
     
             <li class='".active($segunda_pagina)."'>
-                <a class='page-link' href='#' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
+                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
             </li>
     
             <li class='".active($tercera_pagina)."'>
-                <a class='page-link' href='#' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
+                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
             </li>
     
-            ".adelante($tercera_pagina)."
+    
     
             <li class='page-item' >
-                <a class='page-link' href='#' onClick='siguiente(".$total_paginas.")'>
+                <a class='page-link' href='#' id='a-per-3' onClick='siguiente(".$total_paginas.")'>
                 <i class='ti-angle-right'></i>
                 </a>
             </li>

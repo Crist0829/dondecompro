@@ -36,9 +36,8 @@
     </div>
     
 
-    <p>Actualmente tu cuenta no se encuentra activa,
-       para activarla debes abrir el link que te 
-       enviamos al correo que pusiste en tu formulario de registro. 
+    <p>Te enviamos un link a tu correo, una vez que abras el link, te dirigirá a
+        una página donde podrás establecer una nueva contraseña.
      </p>
      <hr class = "hr-per-2">
      <h4 class="texto-verde">¿No te llegó el correo? </h4>

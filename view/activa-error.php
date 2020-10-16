@@ -35,7 +35,7 @@
     <h5>Tuvimos un problema en la activación de tu cuenta, por favor, intenta más tarde.</h5>
 
    
-        <a href="../index.php"><button class="btn btn-success btn-block">IR A INICIO DE SESIÓN</button></a>
+        <a href="../index.php"><button class="btn btn-outline-success btn-block">IR A INICIO DE SESIÓN</button></a>
 
 
 </div>

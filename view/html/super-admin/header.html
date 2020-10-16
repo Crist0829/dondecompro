@@ -50,7 +50,7 @@
                                      class="rounded-circle"
                                      alt="avatar">
                             </figure>
-                            <span class="ml-2 d-sm-inline d-none"><?php echo $_SESSION["nombre"] ?></span>
+                            <span class="ml-2 d-sm-inline d-none texto-azul"><?php echo $_SESSION["nombre"] ?> <i data-feather="arrow-down"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
                             <div class="text-center py-4">
@@ -58,8 +58,8 @@
                                     <img src=<?php cargarImagen() ?>
                                          class="rounded-circle" alt="image">
                                 </figure>
-                                <h1 class="text-center"><?php echo $_SESSION["nombre"] ?></h1>
-                                <h5>SUPER ADMIN</h5>
+                                <h1 class="text-center texto-azul"><?php echo $_SESSION["nombre"] ?></h1>
+                                <h5 class="texto-azul">SUPER ADMIN</h5>
                             </div>
                                 <div class ="form-group">
 
@@ -67,7 +67,7 @@
                                     <div class="form-group"></div>
     
                                     <div class="form-group d-flex justify-content-around">
-                                        <a href="controller/destruye_sesion_cookies.php" class="btn btn-success btn-block">CERRAR SESIÓN</a>
+                                        <a href="controller/destruye_sesion_cookies.php" id="a-per-2" class="btn btn-success btn-block">CERRAR SESIÓN</a>
                                     </div>
 
                                 </div>

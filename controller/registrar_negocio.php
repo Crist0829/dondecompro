@@ -20,11 +20,11 @@ $conexion = new insertarUsuario();
 if($conexion->insertar_temp($nombre, $correo, $clave_cifrada, $perfil, $estado, $fecha, $activacion_con)){
 
     $para = $correo;
-    $titulo = 'Verificación de la cuenta';
-    $mensaje = "Ingresa a este link para verificar tu cuenta:".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con";
-
-
-    mail($para, $titulo, $mensaje);
+    $titulo = 'Verificación y activación de la cuenta';
+    $mensaje = "¡Hola, $nombre! ABRE EL SIGUIENTE LINK PARA ACTIVAR TU CUENTA: ".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con.";
+    $cabeceras = $cabeceras = 'From: appdondecompro@gmail.com' . "\r\n" .
+    'Reply-To: zerpens.com@gmail.com' . "\r\n"; 
+    mail($para, $titulo, $mensaje, $cabeceras);
 
     header("location: ../view/verificacion.php");
 

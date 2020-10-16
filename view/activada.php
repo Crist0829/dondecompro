@@ -36,7 +36,7 @@
 
         <p> ¡YA PUEDES INICIAR SESIÓN! Y ACCEDER A LOS BENEFICIOS DE USUARIO REGISTRADO...</p>
    
-        <a href="../index.php"><button class="btn btn-success btn-block">IR A INICIO DE SESIÓN</button></a>
+        <a href="../index.php"><button class="btn btn-outline-success btn-block">IR A INICIO DE SESIÓN</button></a>
 
 
 </div>

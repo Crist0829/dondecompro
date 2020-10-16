@@ -44,6 +44,16 @@ if(isset($_GET["conerror"])){
             }
             </script>";
 
+        }else if($_GET["conerror"] == 3312){
+
+            echo "<script>
+
+            window.onload=function() {
+                
+                swal('ERROR AL VERIFICAR EL EMAIL', 'Escribe el email que está asociado con tu cuenta a la que quieres establecer una nueva contraseña', 'error');
+            }
+            </script>";
+
         }
 
 

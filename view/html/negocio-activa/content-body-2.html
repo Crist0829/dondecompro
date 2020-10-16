@@ -16,13 +16,13 @@
             <figure class="text-center"> <img src="view/assets/media/image/ositos/ajustes.png"></figure>
             <div class="nav nav-pills flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                <a class="nav-item nav-link active" id="v-pills-home-tab" data-toggle="pill"
+                <a class="nav-item nav-link active" id = "a-per-2" id="v-pills-home-tab" data-toggle="pill"
                    href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">INFORMACIÓN</a>
 
-                 <a class="nav-item nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-foto"
+                 <a class="nav-item nav-link" id = "a-per-2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-foto"
                    role="tab" aria-controls="v-pills-foto" aria-selected="false">IMAGEN</a>
 
-                <a class="nav-item nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
+                <a class="nav-item nav-link" id = "a-per-2" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile"
                    role="tab" aria-controls="v-pills-profile" aria-selected="false">CONTRASEÑA</a>
                 
             </div>
@@ -72,11 +72,9 @@
                                             </tr>
 
                                             <tr>
-                                                <td colspan="2">FECHA DE REGISTRO:</td>
+                                                <td colspan="2">FECHA DE REGISTRO: <small class="text-center texto-verde-peque"><?php echo $_SESSION["fecha"]; ?></small></td>
                             
                                             </tr>
-
-                                            <tr><td colspan="2"><small class="text-center texto-verde-peque"><?php echo $_SESSION["fecha"]; ?></small></td></tr>
 
                                         </table>
         
@@ -207,7 +205,7 @@
                                                     </div>
 
                                                     <div>
-                                                        <a href="controller/borrar_imagen.php" class="btn btn-dark btn-block" >Eliminar imagen actual</a>
+                                                        <a href="controller/borrar_imagen.php" id = "a-per-3" class="btn btn-outline-dark btn-block" >Eliminar imagen actual</a>
                                                     </div>
                                                     
                                                 </div>
@@ -240,14 +238,14 @@
 
     <!-- Footer -->
     <footer class="content-footer">
-        <div>© 2020 DondeCompro - <a href="http://laborasyon.com" target="_blank">DondeCompro Landing Page</a></div>
-        <div>
-            <nav class="nav">
-                <a href="https://themeforest.net/licenses/standard" class="nav-link">Licencia</a>
-                <a href="#" class="nav-link">Politica de privacidad</a>
-                <a href="#" class="nav-link">Contacto</a>
-            </nav>
+
+        <div class="text-footer text-center">
+            © 2020 - <a href="http://dondecomproargentina.com.ar" id="a-per" target="_blank">DondeCompro </a>
         </div>
-    </footer>
-    <!-- ./ Footer -->
+        <div class="text-footer text-center"> Todos los derechos reservados </div>
+        <div class="text-footer text-center">
+            Diseñado por  <a href="https://zerpens.com/" id="a-per">Zerpens</a>
+        </div>
+</footer>
+<!-- ./ Footer -->
 </div>

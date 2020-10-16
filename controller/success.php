@@ -34,6 +34,16 @@ if(isset($_GET["success"])){
         }
         </script>";
 
+    }else if($_GET["success"] == 25){
+
+        echo "<script>
+
+        window.onload=function() {
+            
+            swal('CONTRASEÑA ACTUALIZADA', 'Tu contraseña se cambió correctamente, ya puedes iniciar sesión', 'success');
+        }
+        </script>";
+
     }
 }
 

@@ -32,11 +32,11 @@ function estado($a){
 
     if($a == 1){
 
-        return "<p class='btn btn-outline-success'>ACTIVA</p>";
+        return "<p class='texto-verde'>ACTIVA</p>";
 
     }else{
 
-        return "<p class='btn btn-outline-danger'>INACTIVA</p>";
+        return "<p id = 'a-per-4' >INACTIVA</p>";
 
     }
 
@@ -53,11 +53,11 @@ function darDe($estado,$ID){
 
     if($estado == 1){
 
-        return "<a href=# class='btn btn-outline-dark' onClick='darde($estado, $ID)'>DAR DE BAJA</a>";
+        return "<a href=# id='a-per-4' class='btn btn-outline-dark' onClick='darde($estado, $ID)'>DAR DE BAJA</a>";
 
     }else{
 
-        return "<a href=# class='btn btn-outline-light' onClick='darde($estado, $ID)'>DAR DE ALTA</a>";
+        return "<a href=# class='btn btn-success' onClick='darde($estado, $ID)'>DAR DE ALTA</a>";
 
     }
 
@@ -92,7 +92,7 @@ foreach($mostrar->mostrar($ordenar, $empezar, $entradas) as $registro){
     echo "<tr>
     <td>
 
-        <a href='product-detail.html' class='d-flex align-items-center'>
+        <a href='product-detail.html' id='a-per-3' class='d-flex align-items-center'>
         <img width='50' src=".cargarImagen($registro["imagen"])."
                 class='rounded mr-3' alt='Vase'>
             <span>".$registro["ID"]."</span>
@@ -100,9 +100,9 @@ foreach($mostrar->mostrar($ordenar, $empezar, $entradas) as $registro){
 
     </td>
 
-    <td>".$registro["nombre"]."</td>
+    <td><p class = 'texto-negro'>".$registro["nombre"]."</p></td>
 
-    <td>".$registro["correo"]."</td>
+    <td><p class = 'texto-negro'>".$registro["correo"]."</p></td>
 
     <td>".estado($registro["estado"])."</td>
 
@@ -165,44 +165,19 @@ function active($pagina){
 
 }
 
-function atras($pagina){
-
-    if($pagina > 1){
-
-        return "<li>
-                    <p> . . . </p>
-                </li>";
-    }
-
-}
-
-function adelante($pagina){
-
-    global $total_paginas;
-
-    if($pagina < $total_paginas){
-
-        return "<li>
-                    <p> . . . </p>
-                </li>";
-
-    }
-
-}
-
 if($total_paginas == 0){
 
     echo "<td colspan = 5>
     <div aria-label='...' class='d-flex justify-content-center'>
         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
             <li class='page-item' >
-                <a class='page-link' href='#'>
+                <a class='page-link' id='a-per-3' href='#'>
                     <i class='ti-angle-left'></i>
                 </a>
             </li>
 
             <li class='page-item' >
-                <a class='page-link' href='#' >
+                <a class='page-link' id='a-per-3' href='#' >
                 <i class='ti-angle-right'></i>
                 </a>
             </li>
@@ -211,6 +186,7 @@ if($total_paginas == 0){
     </div>
 
     </td>";
+
 
 }else if($total_paginas <= 3){
 
@@ -224,7 +200,7 @@ if($total_paginas == 0){
                         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
     
                             <li class='".active($primera_pagina)."'btn-outline-youtube>
-                                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
                             </li>
     
                         </ul>
@@ -241,11 +217,11 @@ if($total_paginas == 0){
                 <ul class='pagination pagination-rounded d-flex align-self-baseline'>
     
                     <li class='".active($primera_pagina)."'btn-outline-youtube>
-                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
                     </li>
     
                     <li class='".active($segunda_pagina)."'>
-                        <a class='page-link' href='#' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
+                        <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
                     </li>
     
                 </ul>
@@ -263,15 +239,15 @@ if($total_paginas == 0){
                         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
     
                             <li class='".active($primera_pagina)."'btn-outline-youtube>
-                                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
                             </li>
     
                             <li class='".active($segunda_pagina)."'>
-                                <a class='page-link' href='#' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
+                                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
                             </li>
     
                             <li class='".active($tercera_pagina)."'>
-                                <a class='page-link' href='#' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
+                                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
                             </li>
     
                         </ul>
@@ -291,29 +267,29 @@ if($total_paginas == 0){
     <div aria-label='...' class='d-flex justify-content-center'>
         <ul class='pagination pagination-rounded d-flex align-self-baseline'>
             <li class='page-item' >
-                <a class='page-link' href='#' onClick='anterior(".$total_paginas.")'>
+                <a class='page-link' href='#' id='a-per-3' onClick='anterior(".$total_paginas.")'>
                     <i class='ti-angle-left'></i>
                 </a>
             </li>
     
-            ".atras($primera_pagina)."
+            
     
             <li class='".active($primera_pagina)."'btn-outline-youtube>
-                <a class='page-link active' href='#' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
+                <a class='page-link active' href='#' id='a-per-3' onClick = 'pagina(".$primera_pagina.")'>".$primera_pagina."</a>
             </li>
     
             <li class='".active($segunda_pagina)."'>
-                <a class='page-link' href='#' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
+                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$segunda_pagina.")'>".$segunda_pagina."</a>
             </li>
     
             <li class='".active($tercera_pagina)."'>
-                <a class='page-link' href='#' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
+                <a class='page-link' href='#' id='a-per-3' onClick = 'pagina(".$tercera_pagina.")'>".$tercera_pagina."</a>
             </li>
     
-            ".adelante($tercera_pagina)."
+    
     
             <li class='page-item' >
-                <a class='page-link' href='#' onClick='siguiente(".$total_paginas.")'>
+                <a class='page-link' href='#' id='a-per-3' onClick='siguiente(".$total_paginas.")'>
                 <i class='ti-angle-right'></i>
                 </a>
             </li>

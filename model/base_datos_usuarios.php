@@ -385,6 +385,42 @@ class consultarCorreo extends consultarUsuario{
 
     }
 
+    public function consultarNombreCorreo($correo, $nombre){
+
+        $consulta = "SELECT * FROM ".$this->db." where nombre = :nombre AND correo = :correo";
+
+        $resultado = $this->conexion_db->prepare($consulta);
+
+        $resultado->bindValue(":correo", $correo);
+        $resultado->bindValue(":nombre", $nombre);
+
+        $resultado->execute();
+
+        if($resultado->rowCount() > 0){
+
+            $this->registro = $resultado->fetch(PDO::FETCH_ASSOC);
+
+            if(strcmp($correo, $this->registro["correo"]) == 0){
+
+                $resultado->closeCursor();
+                 return 1;
+
+            }
+
+            $resultado->closeCursor();
+            return 0;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+
+
+    }
+
 
 
 }
@@ -649,7 +685,7 @@ class CambiarClave extends ActualizarDatos{
 
 
 
-/*Es clase contiene los métodos necearios para mostrar y manipular los negocios
+/*Estas clases contienen los métodos necearios para mostrar y manipular los negocios
 en el panel de administración de negocios */
 //--------------------------------//
 class Negocio extends conexion{
@@ -748,7 +784,7 @@ class Negocio extends conexion{
     }
 
 }
-//--------------------------------//
+
 
 class Extraer extends conexion{
 
@@ -771,7 +807,101 @@ class Extraer extends conexion{
 
 
 }
+//--------------------------------//
 
+class Recuperar extends conexion{
+
+    public function insertarVerificacion($verificacion, $correo){
+
+        $this->consulta = "INSERT INTO recuperar_clave (verificacion, correo) values (:verificacion, :correo)";
+
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":verificacion", $verificacion);
+        $resultado->bindValue(":correo", $correo);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+        }else{
+
+            $resultado->closeCursor();
+            return  0;
+
+        }
+
+
+    }
+
+    public function verificarCorreoVeri($correo, $verificacion){
+
+        $this->consulta = "SELECT * FROM recuperar_clave where correo = :correo AND verificacion = :verificacion";
+
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":correo", $correo);
+        $resultado->bindValue(":verificacion", $verificacion);
+        
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+        }else{
+
+            $resultado->closeCursor();
+            return  0;
+
+        }
+    }
+
+    public function insertarClave($correo, $clave){
+
+        $this->consulta = "UPDATE usuarios_bd SET clave = :clave WHERE correo = :correo";
+
+        $resultado = $this->conexion_db->prepare($this->consulta);
+
+        $resultado->execute(array(":correo" => $correo, ":clave" => $clave));
+
+        if($resultado->rowCount() > 0){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+
+    }
+
+    public function borrarCorreoVeri($correo){
+
+        $this->consulta = "DELETE FROM recuperar_clave WHERE correo = :correo";
+
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":correo", $correo);
+        $resultado->execute();
+
+        if($resultado->rowCount() > 0){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+    }
+
+}
 
 
 

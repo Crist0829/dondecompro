@@ -1,3 +1,9 @@
+<?php 
+
+require_once("../controller/conerror.php");
+
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -29,7 +35,7 @@
     
 
     <h5 class="titulos">RECUPERAR CONTRASEÑA</h5>
-    <p>Te mandaremos un link a tu correo para verificar tus datos
+    <p>Te enviaremos un link a tu correo para verificar tus datos
         y luego podrás establecer otra contraseña.
     </p>
 
@@ -38,16 +44,18 @@
     </div>
 
     <!-- form -->
-    <form>
+    <form action="../controller/recuperar_clave.php" method="POST">
         <div class="form-group">
-            <input type="email" class="form-control" placeholder="ESCRIBE TU CORREO..." required autofocus>
+            <input type="email" name = "correo" class="form-control" placeholder="Email" required autofocus>
         </div>
-        <input type="submit" class="btn btn-success btn-block" value="ENVIAR">
-        <hr class="hr-per">
+        <input type="submit" class="btn btn-outline-success btn-block" value="ENVIAR">
+        <hr class="hr-per-2">
+        <div>
         <p >También puedes</p>
-        <a href="registrar-usuario.php" class="btn btn-sm btn-success mr-1">Registrarte</a>
-        o
-        <a href="../index.php" class="btn btn-sm btn-success ml-1">Iniciar sesión</a>
+        <a href="registrar-usuario.php" class="btn btn-sm btn-outline-success btn-block">Registrarte</a>
+        <a href="../index.php" class="btn btn-sm btn-outline-success btn-block">Iniciar sesión</a>
+        </div>
+        
     </form>
     <!-- ./ form -->
 

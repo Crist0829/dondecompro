@@ -53,14 +53,14 @@
                                      class="rounded-circle"
                                      alt="avatar">
                             </figure>
-                            <span class="ml-2 d-sm-inline d-none">Iniciar Sesión</span>
+                            <span class="ml-2 d-sm-inline d-none texto-azul">INICIAR SESIÓN <i data-feather="arrow-down"></i></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-big">
                             <div class="text-center py-4">
                                 <figure class="avatar avatar-lg mb-3 border-0">
                                     <img src="view/assets/media/image/user/default.png"alt="image">
                                 </figure>
-                                <h5 class="text-center">Iniciar Sesión</h5>
+                                <h5 class="text-center texto-azul">INICIAR SESIÓN</h5>
                                 <div class="d-flex justify-content-center">
                                     <form action="controller/procesar_login.php" onsubmit="return validarLogin();" method="POST">
                                         <div class="form-group"></div>
@@ -72,20 +72,23 @@
                                             <input type="password" name = "clave_u" class="form-control"  placeholder="Contraseña" required>
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" name ="recordar" class="custom-control-input" checked="" id="customCheck1">
-                                                <label class="custom-control-label text-muted" for="customCheck1">Recordarme</label>
+                                            <div class="custom-control custom-checkbox custom-checkbox-info">
+                                                <input type="checkbox" name = "recordar" class="custom-control-input" id="customCheck5" checked>
+                                                <label class="custom-control-label texto-azul" for="customCheck5">Recordarme</label>
                                             </div>
-                                            <a class ="text-muted" href="view/recuperar-clave.php"><small>¿Olvidaste la contraseña?</small></a>
-                                        </div>
                                             
+                                        </div>
+
                                             <button class="btn btn-success btn-block">INGRESAR</button>
+                                            <hr class="hr-per">
+                                            <a class ="text-muted" id="a-per" href="view/recuperar-clave.php"><small>¿Olvidaste la contraseña?</small></a>
+                                            <hr class="hr-per">
                                         <div class="form-group d-flex justify-content-between"></div>
                                         <div class="form-grou d-flex justify-content-around">
                                             <p class="text-muted">¿No tienes una cuenta?</p>
                                         </div>
-                                        <div class="form-grou d-flex justify-content-lg-around">
-                                            <a href="view/registrar-usuario.php" class="btn btn-success btn-block">¡REGÍSTRATE!</a>
+                                        <div class="form-group d-flex justify-content-lg-around">
+                                            <a href="view/registrar-usuario.php"  id="a-per-2" class="btn btn-success btn-block">¡REGÍSTRATE!</a>
                                         </div>
                                     </form>
                                 </div>

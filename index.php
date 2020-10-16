@@ -65,18 +65,6 @@
 <!-- Main scripts -->
 <script src="view/vendors/bundle.js"></script>
 
-    <!-- Apex chart -->
-    <script src="view/vendors/charts/apex/apexcharts.min.js"></script>
-
-    <!-- Daterangepicker -->
-    <script src="view/vendors/datepicker/daterangepicker.js"></script>
-
-    <!-- DataTable -->
-    <script src="view/vendors/dataTable/datatables.min.js"></script>
-
-    <!-- Dashboard scripts -->
-    <script src="view/assets/js/examples/pages/dashboard.js"></script>
-
 <!-- App scripts -->
 <script src="view/assets/js/app.min.js"></script>
 </body>

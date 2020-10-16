@@ -66,26 +66,26 @@
         <div class="form-group">
         <div class="custom-control custom-checkbox custom-checkbox-success">
         <input type="checkbox" class="custom-control-input" id="licencia">
-        <label class="custom-control-label" for="licencia">Acepto los terminos de uso</label>
+        <label class="custom-control-label texto-verde" for="licencia">Acepto los terminos de uso</label>
         </div>
         </div>
         
         <div>
 
-        <button class="btn btn-success btn-block">¡REGISTRARSE!</button>
+        <button class="btn btn-outline-success btn-block">¡REGISTRARSE!</button>
 
         </div>
         
-        <hr class="hr-per">
+        <hr class="hr-per-2">
 
-        <p>O PUEDES REGISTRARTE COMO USUARIO</p>
-        <a href="registrar-usuario.php" class="btn btn-success btn-block"><small>REGISTRAR USUARIO</small></a>
+        <p class="texto-verde">O PUEDES REGISTRARTE COMO USUARIO</p>
+        <a href="registrar-usuario.php" class="btn btn-outline-success btn-block"><small>REGISTRAR USUARIO</small></a>
 
 
 
-        <hr class="hr-per">
-        <p>¿Ya tienes una cuenta?</p>
-        <a href="../index.php" class="btn btn-success btn-block">INICIA SESIÓN</a>
+        <hr class="hr-per-2">
+        <p class="texto-verde">¿Ya tienes una cuenta?</p>
+        <a href="../index.php" class="btn btn-outline-success btn-block">INICIA SESIÓN</a>
     </form>
     <!-- ./ form -->
 
