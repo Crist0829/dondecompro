@@ -18,7 +18,7 @@ session_start();
 //---------------------------------------//
 
 
-if($consultar->consultarEstado($nombre) && $id !== ""){ // If global, solo se ejecutará todo el código si se cumple este criterio
+if($id !== ""){ // If global, solo se ejecutará todo el código si se cumple este criterio
 
 $nombre_db = "productos_".$id; //Nombre de la tabla de productos del usuario que hace la petición.
 

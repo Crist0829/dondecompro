@@ -4,6 +4,14 @@ var aux_n = 3;
 var aux_c = 3;
 //--------------//
 
+window.onload = ()=>{
+
+
+    cargarProvincia()
+
+
+}
+
 
 /* Esta función se ejecuta cuando el usuario cambia algo en el campo de texto "nombre"
 Y evalua si el usuario ha escrito el nombre correctamente, es decir, sin comenzar con
@@ -153,7 +161,7 @@ function cambiarDatos(){
 
     }else if(aux_n === 0 || aux_c === 0){
 
-        swal('DATOS INCORRECTO', 'Comprueba los datos e intetalo nuevamente.', 'error');
+        swal('DATOS INCORRECTOS', 'Comprueba los datos e intetalo nuevamente.', 'error');
         return false;
 
     }else if((aux_n == 1 && aux_c !== 0) || (aux_c == 1 && aux_n !== 0)){
@@ -164,3 +172,90 @@ function cambiarDatos(){
 
 }
 
+
+/* Se hace una consulta a la página datos.gob para extraer las provincias y mostrarlas 
+  en el select y a funcion de lo que se selecione el select se cargarán los municipios*/
+//-------------------------------//
+function cargarProvincia(){
+
+    let provincias = document.querySelector("#provincias")
+
+    fetch('https://apis.datos.gob.ar/georef/api/provincias?campos=id,nombre')
+
+    .then(datos => datos.json())
+    .then(datos =>{
+    
+        let aux
+        for(let i in datos.provincias){
+
+            aux += `<option value = '${datos.provincias[i].nombre}'> ${datos.provincias[i].nombre} </option>`
+
+      }
+
+      provincias.innerHTML += aux
+
+    })
+
+    .catch(error => {
+
+        provincias.innerHTML += error
+
+
+    })
+
+}
+//------------------------------//
+
+/*Carga los municipios a funcion de la provincia que se eligió */
+//-----------------------------//
+function cargarMunicipios(){
+
+    
+    let provincia = document.querySelector("#provincias").value
+
+    if(provincia == "seleccionar"){
+
+        document.querySelector("#mMunicipios").style.display = "none";
+        document.getElementById("guardarUbicacion").style.display = "none";
+
+    }else if(provincia != "Ciudad Autónoma de Buenos Aires" &&
+        provincia != "Entre Ríos" &&
+        provincia != "Santa Cruz" &&
+        provincia != "Santiago del Estero"){
+        document.querySelector("#mMunicipios").style.display = "block";
+        document.getElementById("guardarUbicacion").style.display = "block";
+        let municipios = document.querySelector("#municipios")
+        let url = `https://apis.datos.gob.ar/georef/api/municipios?provincia=${provincia}&campos=id,nombre&max=100`
+
+        fetch(url)
+        .then(datos => datos.json())
+        .then(datos =>{
+
+        let aux
+        for(let i in datos.municipios){
+
+            aux += `
+            <option> ${datos.municipios[i].nombre} </option>
+            `
+        }
+
+        municipios.innerHTML = aux
+
+    })
+    .catch(error =>{
+
+        municipios.innerHTML = error
+    })
+
+
+    }else{
+
+        document.querySelector("#mMunicipios").style.display = "none";
+        document.getElementById("guardarUbicacion").style.display = "block";
+
+    }
+
+    
+
+}
+//-----------------------------//

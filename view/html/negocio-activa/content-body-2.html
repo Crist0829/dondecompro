@@ -1,4 +1,4 @@
-<script src="view/assets/js/cuenta.js"></script>
+<script src="view/assets/js/cuenta-negocio.js"></script>
 <div class="content-body">
     <!-- Content -->
     <div class="content ">
@@ -36,62 +36,55 @@
                         <div class="card-body">
                             <div class="card">
         
-                                <div class="card align-items-center">
-
-                                    <div class="card align-items-center">
-                                    <h6 class="card-title texto-verde text-left">INFORMACIÓN DE LA CUENTA</h6>
-                                    <div class="d-flex mb-3">
+                                <div class="card col-md-6 mb-0">
+                                    <h6 class="card-title texto-verde text-left mb-4">INFORMACIÓN DE LA CUENTA</h6>
+                                    <div class="d-flex mb-3 my-0">
                                         <div class="card-per">
                                             <h6 class="text-center">IMAGEN</h6>
-                                            <img width="100" src=<?php cargarImagen() ?> alt="...">
+                                            <img width="150" src=<?php cargarImagen() ?> alt="...">
                                         </div>
                                     </div>
                                     
-                                    <div class="card">
-                                    <div class="d-flex mb-3">
                                     
-                                        <table>
+                                    <div class="d-flex">
+                                    
+                                        <table class="d-flex align-self-center">
                                             
-                                            <tr>
-                                                <td>NOMBRE:</td>
-                                                <td><small class="texto-verde-peque"><?php echo $_SESSION["nombre"]; ?></small> </td>
+                                            <tr class = 'tr-per'>
+                                                <td style="padding: 5px;">NOMBRE:</td>
+                                                <td style="padding: 5px;"><small class="texto-verde"><?php echo $_SESSION["nombre"]; ?></small> </td>
                                             </tr>
 
-                                            <tr>
-                                                <td>CORREO:</td>
-                                                <td><small class="texto-verde-peque"><?php echo $_SESSION["correo"]; ?></small> </td>
+                                            <tr class = 'tr-per'>
+                                                <td style="padding: 5px;">CORREO:</td>
+                                                <td style="padding: 5px;"><small class="texto-verde"><?php echo $_SESSION["correo"]; ?></small> </td>
                                             </tr>
 
-                                            <tr>
-                                                <td>CUENTA:</td>
-                                                <td ><small class="texto-verde-peque">NEGOCIO</small> </td>
-                                            </tr>
-                                            <tr>
-                                                <td>ESTADO:</td>
-                                                <td><small class="texto-verde-peque">ACTIVA</small></td>
+                                            <tr class = 'tr-per'>
+                                                <td style="padding: 5px;">CUENTA:</td>
+                                                <td style="padding: 5px;"><small class="texto-verde">NEGOCIO</small> </td>
                                             </tr>
 
-                                            <tr>
-                                                <td colspan="2">FECHA DE REGISTRO: <small class="text-center texto-verde-peque"><?php echo $_SESSION["fecha"]; ?></small></td>
-                            
-                                            </tr>
+                                            <?php 
+                                            
+                                            echo cargarInfoNegocio();
+                                            
+                                            ?>
 
                                         </table>
         
                                     </div>
-                                    </div>
-
-                                    </div>
+                                    
+                                    
                                     
 
                                 </div>
 
-                                <div class="card align-self-center">
-                                    <div class="card">
-                                        <h6 class="card-title texto-verde">ACTUALIZAR INFORMACIÓN</h6>
+                                <hr class="hr-per-2">
+
+                                <div class="card col-md-6 mb-0">
+                                    <h6 class="card-title texto-verde">ACTUALIZAR INFORMACIÓN</h6>
                                     <form onsubmit="return cambiarDatos()" method="POST" action="controller/actualizar_info.php">
-                                    
-                                        
                                         <div class="form-group">
     
                                             <label>Nombre</label>
@@ -122,7 +115,116 @@
     
                                     </form>
                                 </div>
+
+                                <hr class="hr-per-2">
+
+
+                                <div class="card col-md-6 mb-0">
+                                    
+                                        <h6 class="card-title texto-verde">UBICACIÓN</h6>
+                                    <form method="POST" action="controller/actualizar_ubicacion_negocio.php">
+                                    
+                                        
+                                        <div class="form-group">
+    
+                                            <label for="provincias">Provincia:</label>
+                                    
+                                            <select class = 'form-control' name ='provincia' id='provincias' onchange="cargarMunicipios()">
+
+                                                <option selected>
+                                                    Seleccionar
+                                                </option>
+
+                                            </select>
+    
+                                        </div>
+                                        
+    
+                                        <div class="form-group" style="display: none;" id = 'mMunicipios'>
+    
+                                            <label for="municipios">Municipio:</label>
+                                            <select class ='form-control' name ='municipio' id ='municipios'>
+
+                                                <option selected>
+                                                    Seleccionar
+                                                </option>
+
+                                            </select>
+    
+                                        </div>
+
+                                        <div class="form-group" id = "direccion" style="display: none;">
+    
+                                            <label for ="Direccion">Dirección:</label>
+                                            <input type="text" name="direccion" id ="dir" class="form-control" onkeyup="mostrarGuardar()" required>
+     
+                                        </div>
+
+                
+                                            <input type="submit" class="btn btn-success btn-sm" value="GUARDAR CAMBIOS" style="display: none;" id="guardarUbicacion">
+    
+                                    </form>
+                                
                                 </div>
+
+
+                                <hr class="hr-per-2">
+
+                                <div class="card col-md-6 mb-0">
+
+                                    <h6 class="card-title texto-verde">NEGOCIO</h6>
+                                    <form onsubmit="return infoNegocio()" method="POST" action="controller/info_negocio.php">
+                                    
+                                        
+                                        <div class="form-group">
+    
+                                            <label for="envios">¿Hacen envíos?</label>
+                                            <select class="form-control" name="envios" id="envios">
+                                                <option value="si">
+                                                    Sí
+                                                </option>
+                                                <option value="no">
+                                                    No
+                                                </option>
+
+                                            </select>
+    
+                                        </div>
+
+                                        <div class="form-group">
+                                            
+                                            <label for="pago">¿Qué métodos de pagon reciben?</label>
+
+                                            <select name="pago" id="pago" class="form-control">
+
+                                                <option value="efectivo">
+                                                    Solo Efectivo
+                                                </option>
+
+                                                <option value="efectivo y tarjetas">
+                                                    Efectivo y tarjetas.
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+                                        
+    
+                                        <div class="form-group">
+    
+                                            <label for="telefono">Número de teléfono:</label>
+                                            <input type="text" name="telefono" class="form-control" id="telefono">
+    
+                                        </div>
+
+                
+                                            <input type="submit" class="btn btn-success btn-sm" value="GUARDAR CAMBIOS">
+    
+                                    </form>
+                                
+                                </div>
+
+                                <hr class="hr-per-2">
                             
                             </div>
                             

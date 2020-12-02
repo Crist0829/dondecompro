@@ -959,7 +959,7 @@ body.error-page .display-1 {
 
   border-width: 0.1pt !important;
   border-style: solid !important; 
-  border-color: #009e5738 !important;
+  border-color: #009e574d !important;
   
   
 
@@ -968,7 +968,7 @@ body.error-page .display-1 {
 
   border-width: 1px !important;
   border-style: solid !important; 
-  border-color: #20c420d0 !important;
+  border-color: #20c42056 !important;
   
 
 }
@@ -10207,6 +10207,12 @@ small {
 
 }
 
+.texto-gris{
+
+  color: gray !important;
+
+}
+
 .texto-verde-peque{
 
   font-size: 12px;
@@ -10278,3 +10284,10 @@ a:hover{
 
 }
 
+.tr-per{
+
+  border-bottom: 1px solid rgba(128, 128, 128, 0.356);
+  padding: 10px;
+
+
+}

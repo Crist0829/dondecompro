@@ -239,7 +239,7 @@ escritos*/
 //---------------------------------------//
 class consultarUsuario extends conexion{
 
-    protected $registro;
+    public $registro;
     protected $db = "usuarios_bd";
 
     public function consultar($nombre){
@@ -326,6 +326,46 @@ class consultarUsuario extends conexion{
 
         return $this->registro;
 
+    }
+
+    public function consultarProvinciaMunicipio($provincia, $municipio){
+
+        $this->consulta = "SELECT * FROM usuarios_bd WHERE perfil = 1 AND provincia ="."'".$provincia."'"."  AND municipio ="."'".$municipio."'"."" ;
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $this->registro = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+    }
+
+    public function consultarProvincia($provincia){
+
+        $this->consulta = "SELECT * FROM usuarios_bd WHERE perfil = 1 AND provincia ="."'".$provincia."'"."  AND municipio is null";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $this->registro = $resultado->fetchAll(PDO::FETCH_ASSOC);
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
     }
 
 
@@ -678,11 +718,231 @@ class CambiarClave extends ActualizarDatos{
 
     }
 
+}
+
+class Ubicacion extends conexion{
+
+    public function consultarInfoNegocio($ID){
+
+        $this->consulta = "SELECT * FROM info_negocios WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+    }
+
+    public function actualizarProvinciaMunicipio($ID, $provincia, $municipio){
+
+        $this->consulta = "UPDATE usuarios_bd SET provincia = :provincia, municipio = :municipio WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute(array(":provincia" => $provincia, ":municipio" => $municipio));
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+    }
+
+    public function actualizarProvincia($ID, $provincia){
+
+        $this->consulta = "UPDATE usuarios_bd SET provincia = :provincia WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":provincia", $provincia);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+
+    }
+
+    public function actualizarDireccion($ID, $direccion){
+
+        $this->consulta = "UPDATE info_negocios SET direccion = :direccion where ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":direccion", $direccion);
+        $resultado->execute();
+        $resultado->closeCursor();
+
+    }
+
+    public function InsertarDireccion($ID, $direccion){
+
+        $this->consulta = "INSERT INTO info_negocios (direccion, ID) VALUES (:direccion, $ID)";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":direccion", $direccion);
+        $resultado->execute();
+        $resultado->closeCursor();
+
+    }
+
+    public function eliminarMunicipio($ID){
+
+        $this->consulta = "UPDATE usuarios_bd SET municipio = null where ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+        $resultado->closeCursor();
+
+
+    }
+}
+
+class InfoNegocio extends conexion{
+
+    public function actualizarInfo($telefono, $envios, $cobro, $ID){
+
+        $this->consulta = "UPDATE info_negocios SET n_telefono = :telefono, envios = :envios, metodo_cobro = :cobro WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute(array(":telefono" => $telefono, ":envios" => $envios, ":cobro" => $cobro));
+        
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+    }
+
+    public function actualizarPromos($ID, $promos){
+
+        $this->consulta = "UPDATE info_negocios SET promociones = :promos WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":promos", $promos);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+
+    }
 
 
 }
 //--------------------------------------------//
 
+
+class DatosInfoNegocio extends conexion{
+
+    public function consultarNegocio($ID){
+
+        $this->consulta = "SELECT * FROM info_negocios WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $this->registro = $resultado->fetch(PDO::FETCH_ASSOC);
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+    }
+
+    public function consultarNegocioDB($ID){
+
+        $this->consulta = "SELECT * FROM usuarios_bd WHERE ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $this->registro = $resultado->fetch(PDO::FETCH_ASSOC);
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+    }
+
+
+
+}
+
+
+class Subscripcion extends conexion{
+
+    public function consultarSubscripcion($ID){
+
+        $this->consulta = "SELECT * FROM subscripcion_activa where ID = $ID";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+
+
+    }
+
+
+
+}
 
 
 /*Estas clases contienen los métodos necearios para mostrar y manipular los negocios
@@ -784,7 +1044,6 @@ class Negocio extends conexion{
     }
 
 }
-
 
 class Extraer extends conexion{
 

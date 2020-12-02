@@ -1,5 +1,5 @@
 <?php
-//Destruye la sesión y las actual
+//Destruye la sesión actual
 session_start();
 session_destroy();
 

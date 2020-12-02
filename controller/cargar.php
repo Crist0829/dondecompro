@@ -231,5 +231,107 @@ function cargarImagen(){
 //-------------------------//
 
 
+function cargarInfoNegocio(){
+
+    require_once("model/base_datos_usuarios.php");
+    $usuario = new consultarUsuario();
+    $usuario->consultar($_SESSION["nombre"]);
+    $ID = $usuario->registro["ID"];
+    $info = new DatosInfoNegocio();
+    $aux = "";
+
+    if($info->consultarNegocio($ID)){
+
+        $registro = $info->registro;//Contiene la informacion de la tabla info_negocios
+        $info->consultarNegocioDB($ID);
+        $registrodb = $info->registro;//Contiene la informacion de la tabla usuarios_bd
+        
+        if(!$registrodb["municipio"] == null){
+
+            $aux .= "
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>PROVINCIA:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$registrodb["provincia"]."</small></td>
+            </tr>
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>MUNICIPIO:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$registrodb["municipio"]."</small></td>
+            </tr>
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>DIRECCIÓN:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$registro["direccion"]."</small></td>
+            </tr>
+
+            ";
+
+        }else{
+
+
+            $aux .= "
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>PROVINCIA:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$registrodb["provincia"]."</small></td>
+            </tr>
+            
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>DIRECCIÓN:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$registro["direccion"]."</small></td>
+            </tr>";
+
+
+        }
+
+        if(!$registro["n_telefono"] == null){
+ 
+            $aux .= "
+            
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>ENVÍOS:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".strtoupper($registro["envios"])."</small></td>
+            </tr>
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>RECIBE:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".strtoupper($registro["metodo_cobro"])."</small></td>
+            </tr>
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>TELÉFONO:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$registro["n_telefono"]."</small></td>
+            </tr>
+            
+            ";
+
+        }
+
+
+        $aux .= "
+        <tr class = 'tr-per'>
+            <td style='padding: 5px;'>SUBSCRIPCIÓN:</td>
+            <td style='padding: 5px;'><small class='texto-verde'>".strtoupper($registro["subscripcion"])."</small></td>
+        </tr>";
+
+
+
+
+
+        return $aux;
+
+    }else{
+
+        return "";
+
+    }
+
+
+
+
+
+}
+
+
 
 ?>
