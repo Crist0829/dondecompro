@@ -27,7 +27,7 @@
 
     
 
-    <h3 class="texto-verde"> CREAR CUENTA DE USUARIO</h3>
+    <h3 class="titulos">CREÁ TU CUENTA DE USUARIO</h3>
    
     <div>
         <figure><img src="assets/media/image/ositos/agregar-usuario.png" alt="image"></figure>
@@ -58,7 +58,7 @@
         </div>
         <div class="form-group">
 
-            <input type="password" name = "rclave" id = "rclave" class="form-control" placeholder="Repite la contraseña" onchange="frClave();"require>
+            <input type="password" name = "rclave" id = "rclave" class="form-control" placeholder="Repetí la contraseña" onchange="frClave();"require>
             <small class="form-text" id="erclave"><i></i>  </small>
 
         </div>
@@ -67,27 +67,27 @@
         <div class="form-group">
         <div class="custom-control custom-checkbox custom-checkbox-success">
             <input type="checkbox" class="custom-control-input" id="licencia" >
-            <label class="custom-control-label texto-verde" for="licencia">Acepto los terminos de uso</label>
+            <label class="custom-control-label texto-blanco" for="licencia"><a href="https://dondecompro.ar/termino-de-usos-y-condiciones/" target="_blank" class="texto-blanco">Acepto los terminos de uso </a></label>
         </div>
         </div>
         
         
         <div>
 
-        <button class="btn btn-outline-success btn-block">¡REGISTRARSE!</button>
+        <button class="btn btn-outline-success btn-block">¡REGISTRATE!</button>
 
         </div>
         
         <hr class="hr-per-2">
 
-        <p class="texto-verde">O PUEDES REGISTRAR UN NEGOCIO</p>
-        <a href="registrar-negocio.php" class="btn btn-outline-success btn-block"><small>REGISTRAR NEGOCIO</small></a>
+        <p class="texto-blanco">SI TENÉS UN NEGOCIO, ¡REGÍSTRALO ACÁ! </p>
+        <a href="registrar-negocio.php" class="btn btn-outline-success btn-block"><small>REGISTRÁ TU NEGOCIO</small></a>
 
 
 
         <hr class="hr-per-2">
-        <p class="texto-verde">¿Ya tienes una cuenta?</p>
-        <a href="../index.php" class="btn btn-outline-success btn-block">INICIA SESIÓN</a>
+        <p class="texto-blanco">¿Ya tienes una cuenta?</p>
+        <a href="../index.php" class="btn btn-outline-success btn-block">INICIÁ SESIÓN</a>
     </form>
     <!-- ./ form -->
 

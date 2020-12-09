@@ -7,7 +7,7 @@ require_once("../model/base_datos_usuarios.php");
 $busqueda = new Precios();
 
 $termino = $_GET["termino"];// El termino de la busqueda.
-$entradas = 5; // El total de entradas que se verán en pantalla.
+$entradas = 7; // El total de entradas que se verán en pantalla.
 $pagina = $_GET["pagina"];// la pagina en la que se encuentre en la paginación.
 
 
@@ -21,22 +21,26 @@ $empezar = ($pagina - 1) * $entradas; // Determina desde donde empieza la consul
 //----------------------------------------------------------------------//
 foreach($busqueda->buscar($termino, $empezar, $entradas) as $registro){
 
-    echo "<tr id = 'an".$registro["Codigo"]."'>
-            <td> 
-                    <div>
-                        <p class = 'texto-verde-peque'>".$registro["Descripcion"]."</p>
+    echo "
+        <div class = 'card'>
+        <div class = 'card-body'>
+    <div id = 'an".$registro["Codigo"]."'>
+            <div> 
+                    <div class = 'text-center'>
+                        <p class = 'texto-verde' id = '".$registro["Codigo"]."'>".$registro["Descripcion"]."</p>
                     </div>
 
-                    <div>
-                        <button class='btn btn-success' onClick ='comparar(".$registro["Codigo"].")'>¡EL MEJOR PRECIO!</button>
+                    <div class = 'text-center'>
+                        <button class='btn btn-success' onClick ='anadirListado(".$registro["Codigo"].")'>AÑADIR A MI LISTADO</button>
                     </div>
 
                     <div id = '".$registro["Codigo"]."'> 
                     </div>
-                    <hr class = 'hr-per'>
 
-            </td>
-    </tr>";
+            </div>
+            </div>
+            </div>
+    </div>";
     
 }
 //----------------------------------------------------------------------//

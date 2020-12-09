@@ -939,8 +939,36 @@ class Subscripcion extends conexion{
 
 
     }
+}
+
+class Comparador extends conexion{
+
+    public function extraerNegociosProvincia($provincia){
+
+        $this->consulta = "SELECT * FROM usuarios_bd where perfil = 1 AND provincia = :provincia";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":provincia", $provincia);
+        $resultado->execute();
+        $this->registro = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $resultado->closeCursor();
+        return $this->registro;
 
 
+    }
+
+    public function extraerNegociosProvinciaMunicipio($provincia, $municipio){
+
+        $this->consulta = "SELECT * FROM usuarios_bd where perfil = 1 AND provincia = :provincia AND municipio = :municipio";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":provincia", $provincia);
+        $resultado->bindValue(":municipio", $municipio);
+        $resultado->execute();
+        $this->registro = $resultado->fetchAll(PDO::FETCH_ASSOC);
+        $resultado->closeCursor();
+        return $this->registro;
+
+
+    }
 
 }
 

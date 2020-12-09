@@ -1,10 +1,11 @@
+<?php require_once("controller/navegacion.php") ?>
 <!doctype html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>DondeCompro</title>
+    <title>DóndeCompro?</title>
 
     <!-- Icono -->
     <link rel="shortcut icon" href="view/assets/media/image/favicon.png"/>
@@ -20,7 +21,7 @@
 
     <!-- Meta Etiquetas para el Sw -->
 <meta name="description" content="App Para buscar y comparar precios de productos, en una amplia variedad de negocios">
-<meta name="theme-color" content="#3082ED">
+<meta name="theme-color" content="#22C622">
 <meta name="MobileOptimized" content="width">
 <meta name="HandheldFriendly" content="true">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -32,7 +33,6 @@
 
 </head>
 <body class="dark">
-<?php require_once("controller/navegacion.php") ?>
 <!-- Precargador de la página -->
 <div class="preloader">
     <div class="preloader-icon"></div>

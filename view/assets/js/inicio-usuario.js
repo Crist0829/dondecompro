@@ -12,8 +12,12 @@ window.onload = ()=>{
 
         }else{
 
-            negocios.innerHTML += `<h4 class = "texto-verde text-center"> AÚN NO HAY NEGOCIOS CERCA DE TU UBICACIÓN </h4>`
-
+            negocios.innerHTML += `
+            <div class = "col-md-12 m-3">
+            <h4 class = "texto-blanco text-center"> Todavía no hay negocios cerca tuyo ¡Recomendá DóndeCompro? a los comercios cercanos a vos!</h4>
+            </div>
+            `
+            
         }
 
 

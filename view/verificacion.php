@@ -36,15 +36,13 @@
     </div>
     
 
-    <p>Actualmente tu cuenta no se encuentra activa,
-       para activarla debes abrir el link que te 
-       enviamos al correo que pusiste en tu formulario de registro. 
+    <p>Activá tu cuenta abriendo el link que enviamos a tu correo electrónico (el mismo que pusiste en el formulario de registro)
      </p>
      <hr class = "hr-per-2">
-     <h4 class="texto-verde">¿No te llegó el correo? </h4>
-        <p>Verifica en la sección de <strong>SPAM</strong> de tu bandeja de entrada,
-        si tampoco está ahí, por favor verifica si el correo que pusiste es válido, si no es así,
-         completa el formulario de registro nuevamente.</p>
+     <h4 class="texto-blanco">¿No te llegó el correo? </h4>
+        <p>Verificá la sección de SPAM de tu bandeja de entrada. 
+            Si tampoco está ahí, por favor verificá si el correo que pusiste es válido. 
+            Si no es así, completá el formulario de registro nuevamente</p>
 
     <hr class="hr-per-2">
      

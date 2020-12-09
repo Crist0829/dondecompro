@@ -1,58 +1,116 @@
+<script src="view/assets/js/negocio-inicio.js"></script>
+
 <!-- Content body -->
 <div class="content-body">
     <!-- Content -->
     <div class="content ">
 
-        <h1 class="text-center texto-verde">¡ANUCIÁ TUS PRODUCTOS Y PROMOCIONES!</h1>
-        <hr class="hr-per-2">
+        <h1 class="titulos text-center mb-3">¡BIENVENIDO!</h1>
+        
 <div class="row">
 
-    <div class="col-md-12">
 
-        <div class="card">
-            <div class="card-body">
-                <h6 class="card-title text-center">!CONSIGUE UNA SUBSCRIPCIÓN!</h6>
-                <p class="text-center">Con una subscripción a nuestro sistema de publicidad podrás llegar al ojo de muchos usuarios cerca de tu ubicación,
-                    podrás anunciar tus productos y promociones, no pierdas esta oportunidad.
-                </p>
-            </div>
-        </div>
-    
-    </div>
-    
-
-
-    <div class="col-md-6">
+<div class="col-md-6">
 
     <div class="card">
         <div class="card-body">
-            <h6 class="card-title text-center">SUBSCRIPCIÓN POR UN MES.</h6>
+            <h6 class="card-title text-center">INFO Y PROMOCIONES</h6>
             
-            <p class="text-center">Accede a los beneficios de la subscripción durante un mes.</p>
-            <h4 class="text-center">Costo: <strong class="texto-verde">$ 999 ARS</strong></h4>
-            <hr>
-            <a class="btn btn-success btn-block">PAGAR</a>
+            <form onsubmit="descripcion()" method="POST" action="controller/actualizar_promos.php">
+
+                <div class="form-group">
+
+
+                    <label for="promos">Escribe lo que quieres que aprezca junto a la información de tu negocio
+                        en la página de inicio de los usuarios cercanos a tu ubicación, más abajo podrás ver una
+                        vista previa para que te hagas una idea de cómo los usuarios visualizarán tu negocio
+                        en su página de inicio.
+                    </label>
+
+                    <p class="texto-gris">Ejemplo: PROMO Ferntet + coca x 500 ARS, Tenemos variedad de productos de limpieza, aceptamos MercadoPago, etc.</p>
+                    <textarea class="form-control" maxlength="500" name='promos' id= 'promos' autofocus></textarea>
+
+
+                </div>
+
+                <div class="form-group">
+
+                    <button class="btn btn-success btn-block">GUARDAR</button>
+
+                </div>
+                
+
+            </form>
+
+
         </div>
     </div>
 
+</div>
+
+<div class="col-md-6">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-title text-center">TIPS Y RECORDATORIOS:</h6>
+        
+                    <p class="text-center">No olvides que para que tu negocio aparezca en la página de inicio de los usuarios 
+                        cercanos a tu ubicación,
+                        debes establecer tu información de contacto y ubicación, 
+                        esto lo puedes hacer desde la sección de administración de la cuenta.
+                    </p>
+        
+        
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+        
+                    <p class="text-center">Mantén tu información de contacto y ubicación actualizada.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+
+                    <p class="text-center">
+                        Sé claro con tus promociones, que la redacción sea clara y específica.
+                    </p>
+        
+        
+                </div>
+            </div>
+
+        </div>
+
+
     </div>
 
-    <div class="col-md-6">
+</div>
+
+<div class="col-md-12">
 
     <div class="card">
-        <div class="card-body">
-            <h6 class="card-title text-center">SUBSCRIPCION POR 3 MESES.</h6>
-            <p class="text-center">Accede a los beneficios de la subscripción durante 3 meses.</p>
-            <h4 class="text-center">Costo: <strong class="texto-verde">$ 1.999 ARS</strong></h4>
-            <p class="texto-gris text-center">¡TE AHORRAS $ 1.000 ARS!</p>
-            <hr>
-            <a class="btn btn-success btn-block">PAGAR</a>
+        <div class="card-body d-flex flex-column align-items-center" id = 'infoNegocio'>
+            <h6 class="card-title text-center">VISTA PREVIA</h6>
+            <p class="text-center texto-gris">Asi se verá tu negocio en la página de inicio de los usuarios cercanos a tu ubicación:</p>
+
+
         </div>
     </div>
 
-    
-
-    </div>
+</div>
 
 
 
@@ -64,14 +122,11 @@
     <!-- Footer -->
     <footer class="content-footer">
 
-        <div class="text-footer text-center">
-            © 2020 - <a href="http://dondecomproargentina.com.ar" id="a-per" target="_blank">DondeCompro </a>
+        <div class="text-center texto-blanco">
+            © 2020 - <a href="https://dondecompro.ar/quienes-somos" id="a-per" target="_blank">DóndeCompro? </a>
         </div>
-        <div class="text-footer text-center"> Todos los derechos reservados </div>
-        <div class="text-footer text-center">
-            Diseñado por  <a href="https://zerpens.com/" id="a-per">Zerpens</a>
-        </div>
-</footer>
-<!-- ./ Footer -->
+        <div class="text-center texto-blanco"> Todos los derechos reservados </div>
+    </footer>
+    <!-- ./ Footer -->
 </div>
 <!-- ./ Content body -->

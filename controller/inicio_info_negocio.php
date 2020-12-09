@@ -8,6 +8,7 @@ $ID = $usuario->registro["ID"];
 $info = new DatosInfoNegocio();
 $aux = "";
 $aux2 = "";
+$aux3 = "";
 
 function cargarImagen(){
 
@@ -54,7 +55,7 @@ if($info->consultarNegocio($ID)){
 
     $aux .= "
     
-        <h4><strong class='fa fa-money texto-gris'> ".strtoupper($info->registro["metodo_cobro"])."</strong> </h4>
+        <h3><strong class='fa fa-money texto-gris'> ".ucfirst($info->registro["metodo_cobro"])."</strong> </h3>
     
     ";
 
@@ -66,7 +67,7 @@ if($info->consultarNegocio($ID)){
 
     if($info->registro["promociones"] != null){
 
-        $aux .= "
+        $aux3 .= "
         
             <div class = 'card-per text-center'>
             <h5>INFO Y PROMOCIONES:</h5>
@@ -82,7 +83,7 @@ if($info->consultarNegocio($ID)){
 
     echo "
     
-        <h5 class = 'texto-azul'>NO SE HA GUARDADO ESTA INFORMACIÓN</h5>
+        <h5 class = 'texto-azul'>ESTA ES LA INFORMACIÓN DISPONIBLE DEL NEGOCIO</h5>
     
     ";
 
@@ -91,11 +92,12 @@ if($info->consultarNegocio($ID)){
 
 $aux2 = "
     
-    <img src='".cargarImagen()."' width = 150>
+    <img src='".cargarImagen()."' width = '150'>
     <h3 class = 'texto-verde'>".$usuario->registro["nombre"]."</h3>
-    <div>
+    <div style='padding: 0.5rem !important;'>
         ".$aux."
-     <div>
+     </div>
+     ".$aux3."
 
 ";
 

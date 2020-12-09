@@ -3,7 +3,7 @@
   "short_name": "#DondeCompro",
   "description": "App para buscar y comparar precios de productos, en una amplia variedad de negocios",
   "background_color": "#F2F4FF",
-  "theme_color": "#3082ED",
+  "theme_color": "#22C622",
   "orientation": "portrait",
   "display": "standalone",
   "start_url": "./?utm_source=web_app_manifest",

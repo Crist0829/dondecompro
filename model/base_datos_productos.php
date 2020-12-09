@@ -281,6 +281,24 @@ class Precios extends conexion_productos{
 
 }
 
+class ComparadorProductos extends conexion_productos{
+
+    public $precio;
+
+
+    public function  extraerPrecios($tabla, $producto){
+
+        $this->consulta = "SELECT Precio from $tabla WHERE Descripcion = :producto";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->bindValue(":producto", $producto);
+        $resultado->execute();
+        $this->registro = $resultado->fetch(PDO::FETCH_ASSOC);
+        $resultado->closeCursor();
+        return $this->registro;
+
+    }
+
+}
 
 
 

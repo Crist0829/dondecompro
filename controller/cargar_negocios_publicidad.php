@@ -8,6 +8,7 @@ $registro_usuario = $usuario->registro;
 $ID = $usuario->registro["ID"];
 $info = new DatosInfoNegocio();
 $aux = "";
+$aux4 = "";
 
 function cImagen($a){
     
@@ -37,7 +38,7 @@ if($registro_usuario["provincia"] != null){
             $subscripcion = new Subscripcion();
     
             foreach($registro_negocios as $registro){
-                
+                $aux4 = "";
                 $aux3 = "";
                 $aux2 =  "";
                 
@@ -84,7 +85,7 @@ if($registro_usuario["provincia"] != null){
                     
                         if($info->registro["promociones"] != null){
                     
-                            $aux2 .= "
+                            $aux4 .= "
                             
                                 <div class = 'card-per text-center'>
                                 <h5>INFO Y PROMOCIONES:</h5>
@@ -96,16 +97,23 @@ if($registro_usuario["provincia"] != null){
                     
                         }
 
-                        $aux3 = "<div> $aux2 </div>";
+                        $aux3 = "
+                        <div style='padding: 0.5rem !important;'>
+                            ".$aux2."
+                        </div>
+                        
+                        ";
                     
                         $aux .= "
-                            <div class = 'col-md-6'>
+                            <div class = 'col-md-4'>
     
                                 <div class ='card'>
+                                
                                     <div class = 'card-body d-flex flex-column align-items-center'>
-                                    <img class = 'text-center' src='".cImagen($registro["imagen"])."' width = 150>
+                                    <img src='".cImagen($registro["imagen"])."' width = 150>
                                     <h3 class = 'texto-verde'>".$registro["nombre"]."</h3>
                                         ".$aux3."
+                                        ".$aux4."
                                     </div>
                                 </div>
     
@@ -131,7 +139,6 @@ if($registro_usuario["provincia"] != null){
                     $aux = 0;
     
                 }
-    
     
     
     
@@ -153,7 +160,7 @@ if($registro_usuario["provincia"] != null){
             $subscripcion = new Subscripcion();
     
             foreach($registro_negocios as $registro){
-                
+                $aux4 = "";
                 $aux3 = "";
                 $aux2 =  "";
                 
@@ -200,7 +207,7 @@ if($registro_usuario["provincia"] != null){
                     
                         if($info->registro["promociones"] != null){
                     
-                            $aux2 .= "
+                            $aux4 .= "
                             
                                 <div class = 'card-per text-center'>
                                 <h5>INFO Y PROMOCIONES:</h5>
@@ -212,16 +219,23 @@ if($registro_usuario["provincia"] != null){
                     
                         }
 
-                        $aux3 = "<div> $aux2 </div>";
+                        $aux3 = "
+                        <div style='padding: 0.5rem !important;'>
+                            ".$aux2."
+                        </div>
+                        
+                        ";
                     
                         $aux .= "
-                            <div class = 'col-md-6'>
+                            <div class = 'col-md-4'>
     
                                 <div class ='card'>
+                                
                                     <div class = 'card-body d-flex flex-column align-items-center'>
-                                    <img class = 'text-center' src='".cImagen($registro["imagen"])."' width = 150>
+                                    <img src='".cImagen($registro["imagen"])."' width = 150>
                                     <h3 class = 'texto-verde'>".$registro["nombre"]."</h3>
                                         ".$aux3."
+                                        ".$aux4."
                                     </div>
                                 </div>
     
@@ -250,8 +264,8 @@ if($registro_usuario["provincia"] != null){
     
     
     
-    
             }
+    
     
     
         }else{
@@ -275,9 +289,6 @@ if($registro_usuario["provincia"] != null){
 
 
 }
-
-
-
 
 
 echo $aux;

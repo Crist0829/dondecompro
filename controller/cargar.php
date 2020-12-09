@@ -23,13 +23,13 @@ $pag_u_content = ["content0"=>"view/html/usuario/content-body-0.html",
 $pag_activa = ["header"=>"view/html/negocio-activa/header.html","navigation"=>"view/html/negocio-activa/navigation.html"];
 $pag_activa_content = ["content0"=>"view/html/negocio-activa/content-body-0.html",
                    "content1"=>"view/html/negocio-activa/content-body-1.html",
-                   "content2"=>"view/html/negocio-activa/content-body-2.html"];
+                   "content2"=>"view/html/negocio-activa/content-body-2.html", "content3"=>"view/html/negocio-activa/content-body-3.html"];
 
 
 $pag_inactiva = ["header"=>"view/html/negocio-inactiva/header.html","navigation"=>"view/html/negocio-inactiva/navigation.html"];
 $pag_inactiva_content = ["content0"=>"view/html/negocio-inactiva/content-body-0.html",
 "content1"=>"view/html/negocio-inactiva/content-body-1.html",
-"content2"=>"view/html/negocio-inactiva/content-body-2.html"];
+"content2"=>"view/html/negocio-inactiva/content-body-2.html", "content3"=>"view/html/negocio-inactiva/content-body-3.html"];
 //-------------------------------------------------------------------------------------------------------------------------------------//
 
 /*Las siguientes funciones incluyen los diversos archivos html
@@ -141,6 +141,12 @@ function cargarContenido(){
 
                 case 2: require_once($pag_activa_content["content2"]);
                     break;
+
+                case 3: require_once($pag_activa_content["content3"]);
+                break;
+
+
+
             }
         break;
 
@@ -155,6 +161,9 @@ function cargarContenido(){
 
                 case 2: require_once($pag_inactiva_content["content2"]);
                     break;
+
+                case 3: require_once($pag_inactiva_content["content3"]);
+                break;
             }
         break;
 
@@ -177,6 +186,8 @@ function active_0(){
             break;
         case 2: echo "";
             break;
+        case 3: echo "";
+            break;
     }
 }
 //------------------------------------//
@@ -191,6 +202,8 @@ function active_1(){
             break;
         case 2: echo "";
             break;
+            case 3: echo "";
+        break;
     }
 }
 //------------------------------------//
@@ -205,6 +218,24 @@ function active_2(){
             break;
         case 2: echo "class='active'";
             break;
+        case 3: echo "";
+        break;
+    }
+}
+//------------------------------------//
+
+//----------para la página 3----------//
+function active_3(){
+    global $page;
+    switch($page){
+        case 0: echo "";
+            break;
+        case 1: echo "";
+            break;
+        case 2: echo "";
+            break;
+        case 3: echo "class='active'";
+        break;
     }
 }
 //------------------------------------//
@@ -331,6 +362,72 @@ function cargarInfoNegocio(){
 
 
 }
+
+
+function cargarInfoUsuario(){
+    require_once("model/base_datos_usuarios.php");
+    $usuario = new consultarUsuario();
+    $usuario->consultar($_SESSION["nombre"]);
+    $aux = "";
+
+    if(!$usuario->registro["provincia"] == null){
+
+        if(!$usuario->registro["municipio"] == null){
+
+            $aux .= "
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>PROVINCIA:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$usuario->registro["provincia"]."</small></td>
+            </tr>
+
+            <tr class = 'tr-per'>
+                <td style='padding: 5px;'>MUNICIPIO:</td>
+                <td style='padding: 5px;'><small class='texto-verde'>".$usuario->registro["municipio"]."</small></td>
+            </tr>
+            
+            ";
+
+            return $aux;
+
+        }else{
+
+
+            $aux .= "
+            
+            <tr class = 'tr-per'>
+            <td style='padding: 5px;'>PROVINCIA:</td>
+            <td style='padding: 5px;'><small class='texto-verde'>".$usuario->registro["provincia"]."</small></td>
+            </tr>
+            
+            ";
+
+            return $aux;
+
+        }
+
+
+    }else{
+
+        return "";
+
+    }
+
+
+}
+
+function eliminarListado(){
+
+    if(isset($_SESSION["listado_productos"])){
+
+        unset($_SESSION["listado_productos"], $_SESSION["numero_productos"], $_SESSION["contador_productos"]);
+    
+    
+    }
+
+}
+
+
 
 
 

@@ -27,19 +27,19 @@ if($conexion->insertar_temp($nombre, $correo, $clave_cifrada, $perfil, $estado, 
     $titulo = 'Verificación y activación de la cuenta';
     $mensaje = "
 
-    <div id = 'cuerpo'>
+    <div id = 'cuerpo' style='text-align: center;'>
     
-    <h3>¡Hola, $nombre!</h3>
+    <h3>$nombre</h3>
 
-    <p>Para activar tu cuenta, haz click en: </p><br>
+    <p>Para activar tu cuenta, hacé click acá </p><br>
 
-    <a href='"."https://".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con"."' id='activar'>ACTIVAR CUENTA</a>
+    <a href='"."https://".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con"."' id='activar' style='padding:10px; background-color: #22C622; text-decoration: none; color: white;'>ACTIVÁ TU CUENTA</a>
 
-    <p>si el link no funciona, copia lo sieguiente en tu buscador:</p>
+    <p>Si el link no funciona, copiá y pegá el siguiente enlace en tu navegador:</p>
 
     <p>https://".$_SERVER["SERVER_NAME"]."/view/activacion.php?correo=$correo&activacion=$activacion_con</p>
 
-    <p><strong>El equipo de DondeCompro te da la bienvenida.</strong></p>
+    <p><strong>¡Gracias y bienvenid@ a DóndeCompro?!</strong></p>
     
     </div>
 
@@ -78,7 +78,7 @@ if($conexion->insertar_temp($nombre, $correo, $clave_cifrada, $perfil, $estado, 
         color: white;
         font-style: bold;
         text-decoration: none;
-        background: #20c420d0;
+        background: #22c622;
 
 
     }

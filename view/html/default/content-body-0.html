@@ -1,148 +1,73 @@
+<script src="view/assets/js/validar.js"> </script>
 <!-- Content body -->
-<div class="content-body">
+<div class="content-body m-0">
     <!-- Content -->
     <div class="content ">
 
-<div class="row">
+<div class="row d-flex flex-column align-items-center">
 
-<div class="col-md-6">
-
-    <div class="card">
-        <div class="card-body">
-            <h6 class="titulos text-center">Reducí el impacto de la inflación con tus ahorros</h6>
-            <hr class="hr-per">
-               
-                <figure class="text-center">
-                    <img src="view/assets/media/image/ositos/01.png">
-                    </figure>
-                    
-            <div>
-                <p class="text-center">
-                
-                    Con <strong class="texto-verde">DóndeCompro?</strong> Sabrás exactamente donde comprar para ahorrar tu tiempo, 
-                    tu dinero y los dolores de cabeza para llegar a fin de mes...
-                </p>
-            </div>  
-            
-            
-        </div>
-    </div>
-
-</div>
-
-<div class="col-md-6">
-
-    <div class="card">
-        <div class="card-body">
-            <h6 class="titulos text-center">Creá tu propia fuente de ingresos hoy mismo y para tu futuro</h6>
-            <hr class="hr-per">
-
-           
-
-                <figure class="text-center">
-                <img src="view/assets/media/image/ositos/4.png">
-                </figure>
-                
-                <div>
-
-                    <p class="text-center">
-                
-                        Te enseñamos cómo generar <strong class="texto-verde">ingresos</strong> de manera rápida, fácil y en tus tiempos libres, de forma inmediata y <strong class="texto-verde">mes a mes.</strong>
-                    </p>
-
-                </div>
-                
+    <h1 class="texto-blanco text-center m-2">App</h1>
+    <h1 class="texto-blanco text-center m-2">DóndeCompro?</h1>
     
 
-            
+    <div class="col-md-6">
 
-            
-        </div>
-    </div>
+        <div class="card">
+            <div class="card-header">
+                
+                <figure class="text-center m-4">
 
-</div>
+                    <img src="view/assets/media/image/logo-2.png" alt="logo" width="150">
 
-
-<div class="col-md-6">
-
-    <div class="card">
-        <div class="card-body">
-            <h6 class="titulos text-center">AHORA TOMÁS EL CONTROL...</h6>
-            <hr class="hr-per">
-
-                <figure class="text-center">
-                    <img src="view/assets/media/image/ositos/2.png">
                 </figure>
+
+                <h3 class="texto-verde text-center m-2">INICIÁ SESIÓN</h3>
             
-            <p class="text-center">
-                
-                Vas a tener un mapa completo de todos los comercios que más te convengan según tus necesidades particulares. 
+            </div>
 
-            </p>
+            <div class="card-body">
 
-            <p class="text-center">
+                <form action="controller/procesar_login.php" onsubmit="return validarLogin();" method="POST">
+                    <div class="form-group"></div>
+                    <div class="form-group">
+                        <p id="texlogin" class="texto-rojo-peque"></p>
+                        <input type="text" name="nombre_u" onchange = "validarNombre()" class="form-control" id="nomail" placeholder="Usuario o email" required autofocus>
+                    </div>
+                    <div class="form-group d-block justify-content-around">
+                        <input type="password" name = "clave_u" class="form-control"  placeholder="Contraseña" required>
+                    </div>
+                    <div class="form-group d-flex flex-column align-items-center">
+                        <div class="custom-control custom-checkbox custom-checkbox-info">
+                            <input type="checkbox" name = "recordar" class="custom-control-input" id="customCheck5" checked>
+                            <label class="custom-control-label texto-verde text-center" for="customCheck5">Recordar</label>
+                        </div>
+                        
+                    </div>
 
-                No vas a tener que estar recolectando información de las tarjetas que más te convienen usar, 
-                ni estar atento para que no se te pase algún ofertón.
+                    <div class="form-group d-flex flex-column align-items-center">
 
-            </p>
+                        <button class="btn btn-success btn-block">INGRESAR</button>
+                        <hr>
+                        <a class ="texto-verde" id="a-per2" href="view/recuperar-clave.php">¿Olvidaste tu contraseña?</a>
+                        <hr>
 
-            <p class="texto-verde text-center">Todo eso lo vas a controlar vos mismo, al alcance de tu mano.</p>
+
+                    </div>
+                        
+                    <div class="form-grou d-flex justify-content-around">
+                        <p class="texto-verde">¿No tenés una cuenta?</p>
+                    </div>
+                    <div class="form-group d-flex justify-content-lg-around">
+                        <a href="view/registrar-usuario.php"  id="a-per-2" class="btn btn-success btn-block">¡REGISTRATE!</a>
+                    </div>
+                </form>
+
+            </div>
 
         </div>
+
     </div>
-
-</div>
-
-<div class="col-md-6">
-
-    <div class="card">
-        <div class="card-body">
-            <h6 class="titulos text-center">SI TENÉS UN NEGOCIO, ESTÁS EN EL MEJOR LUGAR...</h6>
-            <hr class="hr-per">
-            <figure class="text-center">
-                <img src="view/assets/media/image/ositos/3.png">
-            </figure>
-        
-            <p class="text-center">
-
-                Sabemos lo mucho que te esforzás para llevar tu comercio adelante. 
-            </p>
-
-            <p class="texto-verde text-center"> Es momento de que recibas nuevas formas de impulsarte a vos y a tu negocio.</p>
-
-            <p class="text-center">Con <strong class="texto-verde">DóndeCompro?</strong> vas a ser más visible dentro del mundo digital, 
-                de forma fácil y rápida, a un click de distancia.</p>
-        </div>
-    </div>
-
-</div>
-
-
-
-<div class="col-md-12">
-
-    <div class="card">
-        <div class="card-body">
-            <h6 class="titulos text-center">TENDRÁS MUCHO MÁS QUE UNA APP</h6>
-            <hr class="hr-per">
-
-            <figure class="text-center">
-                <img src="view/assets/media/image/ositos/5.png">
-            </figure>
-
-            <h1 class="card-title text-center">
-                
-                Junto a vos, las familias, los comercios y los representantes, nos aproximamos a la igualdad del mundo, de forma colaborativa.
-
-
-            </h1>
-            <h4 class="texto-verde text-center"> INICIAR SESION O REGISTRATE PARA EMPEZAR, ¿QUÉ ESPERAS?</h4>
-        </div>
-    </div>
-
-</div>
-
+    
 
 </div>
 
@@ -152,14 +77,12 @@
     <!-- Footer -->
     <footer class="content-footer">
 
-        <div class="text-footer text-center">
-            © 2020 - <a href="http://dondecomproargentina.com.ar" id="a-per" target="_blank">DondeCompro </a>
+        <div class="text-center texto-blanco">
+            © 2020 - <a href="https://dondecompro.ar/quienes-somos" id="a-per" target="_blank">DondeCompro </a>
         </div>
-        <div class="text-footer text-center"> Todos los derechos reservados </div>
-        <div class="text-footer text-center">
-            Diseñado por  <a href="https://zerpens.com/" id="a-per">Zerpens</a>
-        </div>
-</footer>
-<!-- ./ Footer -->
+        <div class="text-center texto-blanco"> Todos los derechos reservados </div>
+    </footer>
+    <!-- ./ Footer -->
+
 </div>
 <!-- ./ Content body -->

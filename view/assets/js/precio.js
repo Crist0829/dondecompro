@@ -264,3 +264,163 @@ function otroPrecio(codigo, tope){
     
 
 }
+
+function anadirListado(a){
+
+    let id = a.toString()
+    let producto = document.getElementById(id).textContent
+    let auxProducto = producto.replace(" ", "_")
+    let miListado = document.getElementById("miListado")
+    let noProductos = document.getElementById("noProductos")
+
+    fetch("controller/consultar_indice.php")
+    .then(data => data.text())
+    .then(data =>{
+
+        indice = data
+
+        let producto2 = `
+
+        <div class='row my-2' id='${indice}'>
+
+        <div class = 'col-md-9'>
+    
+            <div class="list-group-item list-group-item-success" style='height: 3rem;'> 
+         
+            ${producto}
+         
+            </div>
+         </div>
+
+          <div class = "col-md-3">
+
+            <div class = "list-group-item list-group-item-success-bright text-center" style='height: 3rem;'> 
+         
+                <button type="button" class="btn btn-success btn-floating" onclick="eliminarProducto(${indice})">
+                    <i class="ti-trash"></i>
+                </button> 
+         
+            </div>
+         </div>
+
+         </div>
+          `
+
+        fetch("controller/agregar_productos_listado.php?producto="+auxProducto)
+        .then(data => data.text())
+        .then(data =>{
+
+        if(parseInt(data) == 1){
+
+            if(noProductos.style.display == "block"){
+
+                noProductos.style.display = "none"
+        
+                miListado.innerHTML += producto2
+
+                document.getElementById("comparador").style.display = "block";
+
+        
+            }else{
+        
+            miListado.innerHTML += producto2
+
+                document.getElementById("comparador").style.display = "block";  
+        
+            }
+
+        }else{
+
+            swal("No se pudo agregar el producto al listado, intentalo nuevamente");
+
+        }
+
+    })
+
+    })
+    
+}
+
+function eliminarProducto(a){
+
+    let id = a.toString()
+    let producto = document.getElementById(id)
+
+    fetch("controller/eliminar_producto_listado.php?indice="+a)
+    .then(data => data.text())
+    .then(data => {
+
+        if(parseInt(data) == 1){
+
+            producto.style.display = "none";
+            
+            fetch("controller/consultar_contador.php")
+            .then(datos => datos.text())
+            .then(datos =>{
+
+                if(parseInt(datos) < 0){
+
+                    document.getElementById("comparador").style.display = "none";
+                    document.getElementById("noProductos").style.display = "block";   
+
+
+                }
+                             
+
+            })
+
+
+        }else{
+
+            alert("error")
+
+
+        }
+
+
+    })
+
+}
+
+function verListado(){
+
+    let miListado = document.getElementById("miListado")
+
+    fetch("controller/ver_listado.php")
+    .then(data => data.text())
+    .then(data =>{
+
+        miListado.innerHTML = data
+
+    })
+
+
+}
+
+function comparador(){
+
+    fetch("controller/comparador.php")
+    .then(data => data.text())
+    .then(data => {
+
+        if(data != ""){
+
+            let mejoresPrecios = document.getElementById("mejoresPrecios")
+
+            mejoresPrecios.innerHTML = data
+
+            swal("La comparación se realizó correctamente", "Abajo podés ver los negocios que tienen los mejores precios, ten en cuenta que si algún producto tiene el precio de 0 es posible que el negocio no tenga ese producto.", "success")
+
+        }else{
+
+            swal("Aún no hay negocios cerca de vos, no has actualizado tu información de ubicación o es posible que cerca de tu ubicación no hayan negocios registrado, ¡Recomendá DóndeCompro a negocios cercanos a vos!")
+
+        }
+
+        
+
+
+    })
+
+
+}

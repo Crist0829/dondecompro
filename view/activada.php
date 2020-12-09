@@ -28,13 +28,13 @@
 
 
     
-    <h5 class="titulos">¡Tu cuenta ha sido activada exitosamente!</h5>
+    <h5 class="titulos">¡Tu cuenta fue activada con éxito!</h5>
 
     <div >
         <img src="assets/media/image/ositos/activada.png" alt="CUENTA ACTIVADA">
     </div>
 
-        <p> ¡YA PUEDES INICIAR SESIÓN! Y ACCEDER A LOS BENEFICIOS DE USUARIO REGISTRADO...</p>
+        <p> ¡Ya podés iniciar sesión y acceder a todos los beneficios! </p>
    
         <a href="../index.php"><button class="btn btn-outline-success btn-block">IR A INICIO DE SESIÓN</button></a>
 

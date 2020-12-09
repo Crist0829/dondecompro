@@ -26,7 +26,7 @@ function fNombre(){
     if((minus.test(nombre_v[0]) == 0 && mayus.test(nombre_v[0]) == 0) || nombre === "" || nombre.length >  30){
         
         document.getElementById("enombre").innerHTML = "Este campo no puede estar vacío, no puede iniciar con un número o caracter especial \n\
-                                                        y tampoco de tener más de 30 caracteres";
+                                                        y tampoco debe tener más de 30 caracteres";
         return 0;
         
 
@@ -46,7 +46,7 @@ function fNombre(){
 
             }else{
 
-                document.getElementById("enombre").innerHTML = "El nombre de usuario ya se encuentra en uso, intenta con otro";
+                document.getElementById("enombre").innerHTML = "Ese nombre de usuario ya está en uso. Probá con otro";
                 aux_n = 0;
                 
         }
@@ -93,7 +93,7 @@ function fCorreo(){
 
             }else{
 
-                document.getElementById("ecorreo").innerHTML = "La dirección de correo escrita ya se encuentra en uso, intenta con otra";
+                document.getElementById("ecorreo").innerHTML = "La dirección de correo escrita ya está en uso. Probá con otra";
                 aux_c = 0;
         }
       }

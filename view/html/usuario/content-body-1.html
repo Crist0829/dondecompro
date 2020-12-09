@@ -1,66 +1,85 @@
+ 
+ <?php 
+ 
+ eliminarListado();
+ 
+ ?>
  <script src="view/assets/js/precio.js"></script>
  
  <!-- Content body -->
  <div class="content-body">
     <!-- Content -->
     <div class="content ">
-            <div class="row">
-<div class="col-md-12">
+<div class="row">
 
-    <div class="row">
-        <div class="col-md-12">
+    <div class="col-md-12">
 
-            <div class="py-5">
-                <div class="container">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-md-6">
-                            <h2 class="mb-4 text-center titulos">¡BUSCA EL MEJOR PRECIO!</h2>
-                            <p class="text-center"> Busca productos y descubre qué negocio tiene
-                                el mejor precio.
-                            </p>
-                            <figure class="text-center">
-                                <img src="view/assets/media/image/ositos/buscar.png">
-                            </figure>
-                            <form>
-                                <div class="input-group input-group-lg mb-3" >
-                                    <input type="text" class="form-control"
-                                           aria-label="Example text with button addon"
-                                           placeholder="Producto..." autofocus
-                                           aria-describedby="button-addon1" onkeyup="buscar()" id="termino" >
-                                    <div class="input-group-append">
-                                        <button class="btn btn-success" type="button"
-                                                id="button-addon1" onClick="buscar()">
-                                            <i class="ti-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <h1 class="titulos text-center">¡ENCONTRÁ EL MEJOR PRECIO!</h1>
+        <p class="text-center">Buscá los productos que querés, agregalos a tu listado de compras, 
+            y descubrí dónde comprarlos cerca tuyo y al mejor precio
+        </p>
+        <hr class="hr-per">
+
+    </div>
+    
+    
+
+    <div class="col-md-6">
+        <div class="card">
+
+            <div class="card-header">
+                <h5 class="card-title texto-gris text-center m-2">MI LISTADO DE PRODUCTOS</h5>
+            </div>
+
+            <div class="card-body">
+                
+                <div class="list-group" id ='miListado'>
+                    <div class='list-group-item list-group-item-danger mb-1 text-center col-md-12' id= "noProductos" style="display: block;">NO SE HAN AGREGADO PRODUCTOS AL LISTADO</div>
+                    
                 </div>
+                <button class="btn btn-success btn-block" onclick="comparador()" style="display: none;" id='comparador'>¡Compará los precios!</button>
             </div>
-
-            <div class="card">
-                <div class="card-body">
-                <div class="card-scroll">
-
-                    <h5 class="titulos text-center">RESULTADOS DE LA BUSQUEDA: </h5>
-                    <hr class='hr-per'>
-
-                            <div class="table-responsive">
-                            <table id='productos'>
-                                
-                            </table>
-                            </div>
-                </div>
-            </div>
-            </div>
-
-            
+    
         </div>
+
+        <div id='mejoresPrecios'>
+
+        </div>
+    
     </div>
 
-</div>
+    
+
+    <div class="col-md-6">
+
+    <div>
+        <h2 class="text-center texto-blanco">BUSCÁ TUS PRODUCTOS</h2>
+    <form>
+        <div class="input-group input-group-lg mb-3" >
+            <input type="text" class="form-control"
+                   aria-label="Example text with button addon"
+                   placeholder="Producto..." autofocus
+                   aria-describedby="button-addon1" onkeyup="buscar()" id="termino" >
+            <div class="input-group-append">
+                <button class="btn btn-success" type="button"
+                        id="button-addon1" onClick="buscar()">
+                    <i class="ti-search"></i>
+                </button>
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <div id = 'productos'>
+    
+    </div>
+
+
+    </div>
+
+
+
+
 </div>
 
     </div>
@@ -69,14 +88,11 @@
     <!-- Footer -->
     <footer class="content-footer">
 
-        <div class="text-footer text-center">
-            © 2020 - <a href="http://dondecomproargentina.com.ar" id="a-per" target="_blank">DondeCompro </a>
+        <div class="text-center texto-blanco">
+            © 2020 - <a href="https://dondecompro.ar/quienes-somos" id="a-per" target="_blank">DóndeCompro? </a>
         </div>
-        <div class="text-footer text-center"> Todos los derechos reservados </div>
-        <div class="text-footer text-center">
-            Diseñado por  <a href="https://zerpens.com/" id="a-per">Zerpens</a>
-        </div>
-</footer>
-<!-- ./ Footer -->
+        <div class="text-center texto-blanco"> Todos los derechos reservados </div>
+    </footer>
+    <!-- ./ Footer -->
 </div>
 <!-- ./ Content body -->
