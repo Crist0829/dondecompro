@@ -67,6 +67,14 @@
 <!-- Main scripts -->
 <script src="view/vendors/bundle.js"></script>
 
+<?php 
+
+require_once("controller/conerror.php"); 
+require_once("controller/success.php");
+
+?>
+
+
 <!-- App scripts -->
 <script src="view/assets/js/app.min.js"></script>
 <script src="view/assets/js/script.js"></script>

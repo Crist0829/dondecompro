@@ -30,7 +30,7 @@ if(isset($_GET["success"])){
 
         window.onload=function() {
             
-            swal('HAS DADO DE BAJA  AL NEGOCIO CORRECTAMENTE', 'Ahora el negocio no podrá acceder a su panel de administración.', 'success');
+            swal('HAS ACTUALIZADO LA INFORMACIÓN CORRECTAMENTE', '', 'success');
         }
         </script>";
 

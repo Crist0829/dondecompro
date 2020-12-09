@@ -20,7 +20,7 @@ if(isset($_POST["envios"]) && isset($_POST["pago"]) && isset($_POST["telefono"])
 
     }else{
 
-        header("location: ../index.php?page=2&conerror=40");
+        header("location: ../index.php?page=2&conerror=45");
 
     }
 

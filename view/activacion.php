@@ -52,15 +52,36 @@ if(!isset($_GET["activacion"]) || !isset($_GET["correo"])){
                 require_once("../model/base_datos_productos.php");
                 $id = $registro["ID"];
                 $nombre = "productos_".$id;
+                $infoNegocio = new InfoNegocio();
 
-                $nueva_tabla = new CrearTabla();
-    
-                $nueva_tabla->duplicar($nombre);
-                $nueva_tabla->insertar($nombre);
+                if($infoNegocio->insertarInfo($id)){
+
+                    $nueva_tabla = new CrearTabla();
+                    $nueva_tabla->duplicar($nombre);
+                    $nueva_tabla->insertar($nombre);
+
+                    header("location: activada.php");
+
+                }else{
+
+                    echo "OCURRIÓ UN ERROR AL REGISTRAR EL NEGOCIO EN LA BASE DE DATOS,
+                    POR FAVOR CONTÁCTENOS PARA RESOLVER EL PROBLEMA";
+
+
+                }
+
+                
+                
+
+               
+
+            }else{
+
+                header("location: activada.php");
 
             }
 
-            header("location: activada.php");
+            
 
         }else{
 

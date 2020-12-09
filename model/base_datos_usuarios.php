@@ -818,6 +818,28 @@ class Ubicacion extends conexion{
 
 class InfoNegocio extends conexion{
 
+    public function insertarInfo($ID){
+
+        $this->consulta = "INSERT INTO info_negocios (ID) VALUES ($ID)";
+        $resultado = $this->conexion_db->prepare($this->consulta);
+        $resultado->execute();
+
+        if($resultado->rowCount()){
+
+            $resultado->closeCursor();
+            return 1;
+
+        }else{
+
+            $resultado->closeCursor();
+            return 0;
+
+        }
+
+        
+
+    }
+
     public function actualizarInfo($telefono, $envios, $cobro, $ID){
 
         $this->consulta = "UPDATE info_negocios SET n_telefono = :telefono, envios = :envios, metodo_cobro = :cobro WHERE ID = $ID";

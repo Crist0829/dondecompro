@@ -111,7 +111,7 @@ if($registro_usuario["provincia"] != null){
                                 
                                     <div class = 'card-body d-flex flex-column align-items-center'>
                                     <img src='".cImagen($registro["imagen"])."' width = 150>
-                                    <h3 class = 'texto-verde'>".$registro["nombre"]."</h3>
+                                    <h3 class = 'texto-verde m-3'>".$registro["nombre"]."</h3>
                                         ".$aux3."
                                         ".$aux4."
                                     </div>
@@ -125,7 +125,7 @@ if($registro_usuario["provincia"] != null){
                     }else{
     
     
-                        $aux = 0;
+                        continue;
     
                     }
                     
@@ -136,7 +136,7 @@ if($registro_usuario["provincia"] != null){
     
                 }else{
     
-                    $aux = 0;
+                    continue;
     
                 }
     
@@ -233,7 +233,7 @@ if($registro_usuario["provincia"] != null){
                                 
                                     <div class = 'card-body d-flex flex-column align-items-center'>
                                     <img src='".cImagen($registro["imagen"])."' width = 150>
-                                    <h3 class = 'texto-verde'>".$registro["nombre"]."</h3>
+                                    <h3 class = 'texto-verde m-3'>".$registro["nombre"]."</h3>
                                         ".$aux3."
                                         ".$aux4."
                                     </div>
@@ -247,7 +247,7 @@ if($registro_usuario["provincia"] != null){
                     }else{
     
     
-                        $aux = 0;
+                        continue;
     
                     }
                     
@@ -258,13 +258,14 @@ if($registro_usuario["provincia"] != null){
     
                 }else{
     
-                    $aux = 0;
+                    continue;
     
                 }
     
     
     
             }
+    
     
     
     

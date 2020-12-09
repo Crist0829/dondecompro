@@ -1,7 +1,4 @@
 <?php
-require_once("conerror.php"); 
-require_once("success.php");
-
 /*En este archivo están las funciones que cargan el contenido de la página
 a función del usuario que haya iniciado sesión o haya guardado cookies*/
 require_once("cargar.php");
